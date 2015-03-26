@@ -32,11 +32,11 @@ function reactor_child_theme_setup() {
 	
 	/* Support for sidebars
 	Note: this doesn't change layout options */
-	// remove_theme_support('reactor-sidebars');
-	// add_theme_support(
-	// 	'reactor-sidebars',
-	// 	array('primary', 'secondary', 'front-primary', 'front-secondary', 'footer')
-	// );
+	remove_theme_support('reactor-sidebars');
+	add_theme_support(
+		'reactor-sidebars',
+	   array( 'secondary', 'front-primary', 'front-secondary', 'footer' )
+	);
 	
 	/* Support for layouts
 	Note: this doesn't remove sidebars */
@@ -175,37 +175,44 @@ function modify_contact_methods($profile_fields) {
 }
 add_filter('user_contactmethods', 'modify_contact_methods');
 
-// Add Photographer Name and URL fields to media uploader
-function be_attachment_field_credit( $form_fields, $post ) {
-    $form_fields['be-photographer-name'] = array(
-        'label' => 'Photographer Name',
-        'input' => 'text',
-        'value' => get_post_meta( $post->ID, 'be_photographer_name', true ),
-        'helps' => 'If provided, photo credit will be displayed',
-    );
+// Add photographer credit to caption output
+function my_caption_html( $current_html, $attr, $content ) {
+    extract(shortcode_atts(array(
+        'id'    => '',
+        'align' => 'alignnone',
+        'width' => '',
+        'caption' => ''
+    ), $attr));
+    if ( 1 > (int) $width || empty($caption) )
+        return $content;
 
-    $form_fields['be-photographer-org'] = array(
-        'label' => 'Photographer Organization',
+    if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
+
+    return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . (10 + (int) $width) . 'px">'
+. do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '<span class="photo-credit">(' . get_post_meta( $id, 'photographer_name', true) . ')</span></p></div>';
+}
+add_filter( 'img_caption_shortcode', 'my_caption_html', 1, 3 );
+
+// Add Photographer Name and URL fields to media uploader
+function attachment_field_credit( $form_fields, $post ) {
+    $form_fields['photographer-name'] = array(
+        'label' => 'Photographer',
         'input' => 'text',
-        'value' => get_post_meta( $post->ID, 'be_photographer_org', true ),
-        'helps' => 'Add Photographer Organization',
+        'value' => get_post_meta( $post->ID, 'photographer_name', true ),
     );
 
     return $form_fields;
 }
-add_filter( 'attachment_fields_to_edit', 'be_attachment_field_credit', 10, 2 );
+add_filter( 'attachment_fields_to_edit', 'attachment_field_credit', 10, 2 );
 
 // Save values of Photographer Name and URL in media uploader
-function be_attachment_field_credit_save( $post, $attachment ) {
-    if( isset( $attachment['be-photographer-name'] ) )
-        update_post_meta( $post['ID'], 'be_photographer_name', $attachment['be-photographer-name'] );
-
-    if( isset( $attachment['be-photographer-org'] ) )
-        update_post_meta( $post['ID'], 'be_photographer_org', $attachment['be-photographer-org'] );
+function attachment_field_credit_save( $post, $attachment ) {
+    if( isset( $attachment['photographer-name'] ) )
+        update_post_meta( $post['ID'], 'photographer_name', $attachment['photographer-name'] );
 
     return $post;
 }
-add_filter( 'attachment_fields_to_save', 'be_attachment_field_credit_save', 10, 2 );
+add_filter( 'attachment_fields_to_save', 'attachment_field_credit_save', 10, 2 );
 
 /**
  * Include posts from authors in the search results where
@@ -214,6 +221,7 @@ add_filter( 'attachment_fields_to_save', 'be_attachment_field_credit_save', 10, 
  * @author danielbachhuber
  */
 add_filter( 'posts_search', 'db_filter_authors_search' );
+
 function db_filter_authors_search( $posts_search ) {
 
     // Don't modify the query at all if we're not on the search template
