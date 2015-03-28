@@ -19,14 +19,14 @@
 
                 <?php reactor_content_before(); ?>
 
-                <div class="<?php reactor_columns(7,12,9); ?> large-push-2 medium-push-1">
+                <div class="<?php reactor_columns( array( 7, 12, 9 ) ); ?> large-push-2 medium-push-1">
                 
                 <?php reactor_inner_content_before(); ?>
                 
 					<?php // start the loop
                     while ( have_posts() ) : the_post(); ?>
-                    
-                    <?php reactor_post_before(); ?>
+
+                        <?php reactor_post_before(); ?>
                         
 					<?php // get post format and display code for that format
                     if ( !get_post_format() ) : get_template_part('post-formats/format', 'standard'); 

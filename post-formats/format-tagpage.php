@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying catagory archive content
+ * The template for displaying tag archive content
  *
  * @package Reactor
  * @subpackage Post-Formats
@@ -11,7 +11,7 @@
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="entry-body">
 
-            <?php reactor_post_catpage(); ?>
+            <?php reactor_post_tagpage(); ?>
              
         </div><!-- .entry-body -->
     </article><!-- #post -->

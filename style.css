@@ -62,7 +62,8 @@ body, p {
 .top-bar-section [role="separator"] {
     border:none;
 }
-.top-bar-section ul li>a {
+.top-bar-section ul li>a,
+.top-bar-section .dropdown li a.parent-link {
     font-family: 'Raleway', Helvetica, Arial, sans-serif!important;
     font-weight:700;
     text-transform: uppercase;
@@ -83,7 +84,7 @@ body, p {
 .top-bar.expanded,
 .top-bar.expanded .title-area,
 .top-bar-section .has-form { 
-    background: none repeat scroll 0 0 #812317;
+    background: none repeat scroll 0 0 #000;
 }
 .top-bar .name {
     font-size:25px;
@@ -148,6 +149,9 @@ body.home footer#footer {
 #main .frontpage-post h3.entry-category a:hover {
     color: #afbbd5;
 }
+.frontpage-widget {
+    margin-bottom:.9em;
+}
 .frontpage-post h3.entry-category {
     position: absolute;
     top:2%;
@@ -175,7 +179,29 @@ body.home footer#footer {
 #socialrow .inline-list li a img:hover {
     opacity:1.0;
 }
-/* tag and catecory images */
+/* social sharing */
+.post-before {
+    position: absolute;
+    left:-20%;
+}
+.post-before .post-body-social ul li {
+    float:none;
+    width:2em;
+    height:2em;
+    overflow:hidden;
+    margin-bottom:.75em;
+}
+.post-after .post-body-social ul {
+    display: table;
+    margin:1em auto;
+}
+.post-after .post-body-social ul li {
+    width:2em;
+    height:2em;
+    overflow:hidden;
+    margin-bottom:.75em;
+}
+/* tag and category images */
 body.page h1.entry-title {
     font-size:2em;
     margin:0 0 .5em;
@@ -262,59 +288,78 @@ body.archive .entry-body {
 }
 /* single article page */
 .posted-time { float:right; }
+body.page .entry-meta,
 body.single .entry-meta {
     padding:.5em 0;
     margin:.25em 0;
-    border-top:1px solid #eee;
-    border-bottom:1px solid #eee;
+    border-top:1px solid #888;
+    border-bottom:1px solid #888;
 }
+body.page h3, body.single h3,
 body.single h3, body.single h3 {
     margin:1.25em 0 1.1em;
 }
+body.page .wp-caption,
 body.single .wp-caption {
     max-width:120%;
     padding:0;
 }
+body.page figure.figure img,
 body.single figure.figure img {
     width:100%;
     height:auto;
 }
+body.page figure,
 body.single figure {
-    margin-bottom:2em;
+    margin:0 0 1em;
 }
+body.page header.entry-header,
 body.single header.entry-header {
     margin-bottom:1.25em;
 }
+body.page header.entry-header .entry-meta,
 body.single header.entry-header .entry-meta {
     text-transform: uppercase;
     font-size:.9em;
 }
+body.page header.entry-header .entry-meta .by-author a,
 body.single header.entry-header .entry-meta .by-author a {
     color:#eee!important;
 }
+body.page header.entry-header,
+body.page figure.figure-full,
 body.single header.entry-header,
 body.single figure.figure-full {
     margin-left:-10%;
     width:120%;
     padding:0;
 }
+body.page figure.figure-large,
 body.single figure.figure-large {
     width:100%;
     margin:1.5em 0;
 }
+body.page figure.figure-medium,
 body.single figure.figure-medium {
     width:50%;
 }
+body.page figure.thumbnail,
 body.single figure.thumbnail {
     width:25%;
 }
+body.page figure.figure-thumbnail.alignright,
+body.single figure.figure-thumbnail.alignright,
+body.page figure.figure-medium.alignright,
 body.single figure.figure-medium.alignright {
     margin-right:-10%;
-    padding:0 0 .5em 1.25em;
+    padding:0 0 .5em 1.5em;
 }
+body.page figure.figure-thumbnail.alignleft,
+body.single figure.figure-thumbnail.alignleft,
+body.page figure.figure-medium.alignleft,
 body.single figure.figure-medium.alignleft {
     margin-left:-10%;
-    padding:0 1.25em .5em 0;
+    padding:0 1.5em .5em 0;
 }
 /* images */
 figure.wp-caption figcaption.wp-caption-text {
@@ -416,16 +461,25 @@ div.inline-cube-ad {
     text-align:center;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:1024px) {
     .top-bar .name {
         font-size: 20px;
         padding-top: 12px;
     }
+    body, p {
+        font-size:1em;
+    }
+    figure.wp-caption figcaption.wp-caption-text {
+        font-size:.85em;
+    }
     h1 { font-size: 2em; }
     body.single header.entry-header, body.single figure.figure-full {
         margin-left: 0;
-        padding: .75em;
+        padding: 0 0 .75em;
         width: auto;
+    }
+    .post-before {
+        left:-2.5em;
     }
 }
 @media only screen and (min-width: 58.063em) {

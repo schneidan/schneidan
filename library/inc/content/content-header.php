@@ -28,9 +28,8 @@ function reactor_do_reactor_head() { ?>
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<?php $favicon_uri = reactor_option('favicon_image') ? reactor_option('favicon_image') : get_template_directory_uri() . '/favicon.ico'; ?>
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,100,200,300,600,700,800,900' rel='stylesheet' type='text/css'>
-<link rel="shortcut icon" href="<?php echo $favicon_uri; ?>">
+<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() . '/favicon.ico'; ?>">
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
 <?php 

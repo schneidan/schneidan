@@ -202,6 +202,16 @@ function reactor_post_catpage() {
 }
 
 /**
+ * Register hook: reactor_post_social
+ *
+ * 
+ * @since 1.0.0
+ */
+function reactor_post_social() {
+	do_action('reactor_post_social');
+}
+
+/**
  * Register hook: reactor_post_footer
  *
  * 

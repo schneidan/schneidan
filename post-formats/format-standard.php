@@ -21,8 +21,14 @@
             </div><!-- .entry-summary -->
             <?php elseif ( is_single() ) : ?>
             <div class="entry-content">
+                <div class="post-before hide-for-small">
+                    <?php reactor_post_social(); ?>
+                </div>
                 <?php the_content(); ?>
                 <?php wp_link_pages( array('before' => '<div class="page-links">' . __('Pages:', 'reactor'), 'after' => '</div>') ); ?>
+                <div class="post-after">
+                    <?php reactor_post_social(); ?>
+                </div>
             </div><!-- .entry-content --> 
             <?php else : ?>
             <div class="entry-content">

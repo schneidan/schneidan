@@ -50,7 +50,7 @@ add_action('reactor_post_frontpage', 'reactor_post_frontpage_format', 1);
 add_action('reactor_post_portpage', 'reactor_post_frontpage_format', 1);
 
 /**
- * Front page main format
+ * Achive pages format
  * in format-standard
  * 
  * @since 1.0.0
@@ -78,9 +78,6 @@ function reactor_post_catpage_format() {
 			</div>
 	<?php } else { ?>
 		<div class="catpage-post">
-	<?php }
-	if ( is_tag() ) { ?>
-		<h3 class="entry-category"><a href="<?php echo $categories_link; ?>" title="<?php echo esc_attr( sprintf( __('All posts in %s', 'reactor'), $categories_list ) ); ?>" rel="bookmark"><?php echo $categories_list; ?></a></h3>
 	<?php } ?>
 		<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 		</a>
@@ -244,17 +241,56 @@ function reactor_do_page_single() {
 add_action('reactor_content_after', 'reactor_do_page_single', 4);
 
 /**
- * Post footer edit 
+ * Post social
  * in single.php
  * 
  * @since 1.0.0
  */
-function reactor_do_post_edit() {
+function reactor_do_post_social() {
 	if ( is_single() ) {
-		edit_post_link( __('Edit', 'reactor'), '<div class="edit-link"><span>', '</span></div>');
+		global $wp;
+		global $post;
+
+		$text = html_entity_decode( get_the_title() );
+		if ( (is_single() || is_page() ) && has_post_thumbnail( $post->ID ) ) {
+			$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
+		}
+		$desc = ( get_the_excerpt() != '' ? get_the_excerpt() : get_bloginfo( 'description' ) );
+		$social_string = '<div class="post-body-social"><ul class="inline-list">';
+		//Twitter button
+		$social_string .= sprintf(
+		    '<li class="post-meta-social pm-twitter"><a href="javascript:void(0)" onclick="javascript:window.open(\'http://twitter.com/share?text=%1$s&amp;url=%2$s&amp;via=%3$s\', \'twitwin\', \'left=20,top=20,width=500,height=500,toolbar=1,resizable=1\');"><img src="%4$s" alt="Share on Twitter" /></a></li>',
+		    urlencode(html_entity_decode($text, ENT_COMPAT, 'UTF-8') . ':'),
+		    rawurlencode( get_permalink() ),
+		    'schneidan',
+		    get_stylesheet_directory_uri() . '/images/icon-twitter-round.png'
+		);
+		//Facebook share
+		$social_string .= sprintf(
+		    '<li class="post-meta-social pm-facebook"><a href="javascript:void(0)" onclick="javascript:window.open(\'http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=%1$s&amp;p[images][0]=%2$s&amp;p[title]=%3$s&amp;p[summary]=%4$s\', \'fbwin\', \'left=20,top=20,width=500,height=500,toolbar=1,resizable=1\');"><img src="%5$s" alt="Share on Facebook" /></a></li>',
+		    rawurlencode( get_permalink() ),
+		    rawurlencode( $image[0] ),
+		    urlencode( html_entity_decode($text, ENT_COMPAT, 'UTF-8') ),
+		    urlencode( html_entity_decode( $desc, ENT_COMPAT, 'UTF-8' ) ),
+		    get_stylesheet_directory_uri() . '/images/icon-facebook-round.png'
+		);
+		//Google plus share
+		$social_string .= sprintf(
+		    '<li class="post-meta-social pm-googleplus"><a href="javascript:void(0)" onclick="javascript:window.open(\'http://plus.google.com/share?url=%1$s\', \'gpluswin\', \'left=20,top=20,width=500,height=500,toolbar=1,resizable=1\');"><img src="%2$s" alt="Share on Google Plus" /></a></li>',
+		    rawurlencode( get_permalink() ),
+		    get_stylesheet_directory_uri() . '/images/icon-gplus-round.png'
+		);
+		//Email This
+		$social_string .= sprintf(
+		    '<li class="post-meta-social pm-email"><a href="%1$s"><img src="%2$s" alt="Share by Email" /></a></li>',
+		    rawurlencode( get_permalink() . '/email' ),
+		    get_stylesheet_directory_uri() . '/images/icon-email-round.png'
+		);
+		$social_string .= '</div>';
+		echo $social_string;
 	}
 }
-//add_action('reactor_post_footer', 'reactor_do_post_edit', 4);
+add_action('reactor_post_social', 'reactor_do_post_social', 1);
 
 /**
  * Single post nav 

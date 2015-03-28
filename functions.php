@@ -92,11 +92,13 @@ function reactor_child_theme_setup() {
 		
 }
 
-// add a favicon to the site
-function blog_favicon() {
-	echo '<link rel="Shortcut Icon" type="image/x-icon" href="'.get_bloginfo('stylesheet_directory').'/images/favicon.ico" />' . "\n";
+// add a favicon to the admin
+function add_favicon() {
+    $favicon_url = get_stylesheet_directory_uri() . '/favicon.ico';
+    echo '<link rel="shortcut icon" href="' . $favicon_url . '" />';
 }
-add_action('wp_head', 'blog_favicon');
+add_action('login_head', 'add_favicon');
+add_action('admin_head', 'add_favicon');
 
 // Hide the Wordpress admin bar for everyone
 function my_function_admin_bar(){ return false; }
@@ -262,5 +264,3 @@ function db_filter_user_query( &$user_query ) {
         $user_query->query_where = str_replace( "user_nicename LIKE", "display_name LIKE", $user_query->query_where );
     return $user_query;
 }
-
-?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * The loop for displaying posts on the category page template
+ * The loop for displaying posts on the tag page template
  *
  * @package reverb
  * @subpackage loops
@@ -10,11 +10,19 @@
 
 <?php // the get options
 $number_posts = 25;
-
+if ( get_query_var('paged') ) {
+    $paged = get_query_var('paged');
+} elseif ( get_query_var('page') ) {
+    $paged = get_query_var('page');
+} else {
+    $paged = 1;
+}
+    
     $args = array(
-        'post_type' => 'page',
+        'post_type' => 'post',
         'posts_per_page' => $number_posts,
-        'post_parent' => $post->ID,
+        'tag_id' => get_queried_object_id(),
+        'paged' => get_query_var( 'paged' ),
         );
     
     global $wp_query; 
@@ -24,15 +32,11 @@ $number_posts = 25;
     
     <?php reactor_loop_before(); ?>
 
-    <ul class="large-block-grid-3 medium-block-grid-2 small-block-grid-1">
-    	
         <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
-            <?php get_template_part('post-formats/format', 'portpage'); ?>
+            <?php get_template_part('post-formats/format', 'catpage'); ?>
 
         <?php endwhile; // end of the post loop ?>
-
-    </ul>
 
 	<?php endif; ?>
         
