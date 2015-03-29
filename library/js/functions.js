@@ -17,3 +17,19 @@ function addFigureClassToImages() {
 $j(document).ready(function(){
 	addFigureClassToImages();
 });
+
+$j('.show-search').on('click', function(){
+	$j(this).hide();
+	$j('.hidden-form').animate({
+		width:'100%'
+	},150,function(){
+		$j('input#s').focus();
+	});
+});
+
+$j('#searchform').submit(function() {
+    if ($j.trim($j("#s").val()) === "") {
+    	$j('input#s').focus();
+	    return false;
+    }
+});

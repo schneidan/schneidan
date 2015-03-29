@@ -167,6 +167,17 @@ function disable_self_trackback( &$links ) {
 }
 add_action( 'pre_ping', 'disable_self_trackback' );
 
+// Suppress 'Uncategorized' in category widget
+function my_categories_filter($cat_args){
+    $cat_args['title_li'] = '';
+    $cat_args['exclude_tree'] = 1;
+    $cat_args['exclude'] = 1;
+    $cat_args['use_desc_for_title'] = 0;
+    return $cat_args;
+}
+
+add_filter('widget_categories_args', 'my_categories_filter', 10, 2);
+
 // Add contact methods fields to user profile
 function modify_contact_methods($profile_fields) {
 

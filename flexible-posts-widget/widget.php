@@ -23,11 +23,15 @@ if( $flexible_posts->have_posts() ):
 						// If the post has a feature image, show it
 						if( has_post_thumbnail() ) { 
 							$medium_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium'); ?>
-							<div class="cat-thumbnail" style="background-image:url('<?php echo $medium_image_url[0]; ?>');">
-								<div class="cat-imgholder"></div>
-								<h5 class="category-title"><a href="<?php echo get_category_link(intval($catquery->term_id)); ?>" title="<?php echo $catquery->name; ?>"><?php echo $catquery->name; ?></a></h5>
-								<h4 class="title cat-<?php echo $catquery->slug; ?>"><a href="<?php the_permalink(); ?>" rel="bookmark" class="title-link" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
-							</div>
+							<a href="<?php the_permalink(); ?>" rel="bookmark" class="title-link" title="<?php the_title_attribute(); ?>">
+								<div class="cat-thumbnail" style="background-image:url('<?php echo $medium_image_url[0]; ?>');">
+									<div class="cat-imgholder"></div>
+									<h5 class="category-title"><a href="<?php echo get_category_link(intval($catquery->term_id)); ?>" title="<?php echo $catquery->name; ?>"><?php echo $catquery->name; ?></a></h5>
+									<a href="<?php the_permalink(); ?>" rel="bookmark" class="title-link" title="<?php the_title_attribute(); ?>">
+										<h4 class="title cat-<?php echo $catquery->slug; ?>"><?php the_title(); ?></h4>
+									</a>
+								</div>
+							</a>
 					<?php } ?>
 				<?php } ?>
 		</li>

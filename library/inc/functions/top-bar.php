@@ -14,7 +14,7 @@ if ( !function_exists('reactor_top_bar') ) {
 
 		$defaults = array(
 			'title'      => get_bloginfo('name'),
-			'titletwo'      => get_bloginfo('name'),
+			'titletwo'   => get_bloginfo('name'),
 			'tagline'    => get_bloginfo('description'),
 			'title_url'  => home_url(),
 			'menu_name'  => '',
@@ -30,6 +30,7 @@ if ( !function_exists('reactor_top_bar') ) {
 		/* call functions to create right and left menus in the top bar. defaults to the registered menus for top bar */
         $left_menu = ( ( $args['left_menu'] && is_callable( $args['left_menu'] ) ) ) ? call_user_func( $args['left_menu'], (array) $args ) : '';
         $right_menu = ( ( $args['right_menu'] && is_callable( $args['right_menu'] ) ) ) ? call_user_func( $args['right_menu'], (array) $args ) : '';
+        $right_menu .= top_bar_search_form() . '</ul>';
 		
 		// assemble classes for top bar
 		$classes = array(); $output = '';
@@ -45,6 +46,7 @@ if ( !function_exists('reactor_top_bar') ) {
 				$output .= '<nav class="top-bar" data-topbar data-options="is_hover:true; scrolltop:false; custom_back_text:true; back_text:&laquo; Back; mobile_show_parent_link: true;"">';
 					$output .= '<ul class="title-area">';
 						$output .= '<li class="name">';
+							$output .= '<img src="' . get_stylesheet_directory_uri() . '/images/D-aperture-logo-shadow.png" alt="Aperture-D logo" />';
 							$output .= '<p><a href="' . $args['title_url'].'">' . $args['titletwo'] . '</a></p>';
 						$output .= '</li>';
 						$output .= '<li class="toggle-topbar menu-icon"><a href="#"><span>' . $args['menu_name'] . '</span></a></li>';

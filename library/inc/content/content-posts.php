@@ -31,20 +31,23 @@ function reactor_post_frontpage_format() {
 
 	if ( has_post_thumbnail() ) {
 		$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
-	}
-	if (isset($large_image_url) && strlen($large_image_url[0]) >= 1) { ?>
-		<div class="frontpage-image frontpage-post" style="background-image:url('<?php echo $large_image_url[0]; ?>');">
-			<div class="front-thumbnail">
-			</div>
+	} ?>
+		<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
+	<?php if (isset($large_image_url) && strlen($large_image_url[0]) >= 1) { ?>
+			<div class="frontpage-image frontpage-post" style="background-image:url('<?php echo $large_image_url[0]; ?>');">
+				<div class="front-thumbnail">
+				</div>
 	<?php } else { ?>
 		<div class="frontpage-post">
 	<?php }
 	if ( is_front_page() ) { ?>
-		<h3 class="entry-category"><a href="<?php echo $categories_link; ?>" title="<?php echo esc_attr( sprintf( __('All posts in %s', 'reactor'), $categories_list ) ); ?>" rel="bookmark"><?php echo $categories_list; ?></a></h3>
+				<a href="<?php echo $categories_link; ?>" title="<?php echo esc_attr( sprintf( __('All posts in %s', 'reactor'), $categories_list ) ); ?>" rel="bookmark"><h3 class="entry-category"><?php echo $categories_list; ?></h3></a>
 	<?php } ?>
-		<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+				<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
+					<h2 class="entry-title"><?php the_title(); ?></h2>
+				</a>
+			</div>
 		</a>
-	</div>
 <?php }
 add_action('reactor_post_frontpage', 'reactor_post_frontpage_format', 1);
 add_action('reactor_post_portpage', 'reactor_post_frontpage_format', 1);
@@ -73,9 +76,11 @@ function reactor_post_catpage_format() {
 	}
 	if (isset($large_image_url) && strlen($large_image_url[0]) >= 1) { ?>
 		<div class="catpage-post clearfix">
-			<div class="cat-thumbnail" style="background-image:url('<?php echo $large_image_url[0]; ?>');">
-				<div class="cat-imgholder"></div>
-			</div>
+			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
+				<div class="cat-thumbnail" style="background-image:url('<?php echo $large_image_url[0]; ?>');">
+					<div class="cat-imgholder"></div>
+				</div>
+			</a>
 	<?php } else { ?>
 		<div class="catpage-post">
 	<?php } ?>
@@ -144,77 +149,17 @@ function reactor_do_post_header_meta() {
 add_action('reactor_post_header', 'reactor_do_post_header_meta', 4);
 
 /**
- * Post footer title 
- * in format-audio, format-gallery, format-image, format-video
- * 
- * @since 1.0.0
- */
-function reactor_do_post_footer_title() {
-$format = ( get_post_format() ) ? get_post_format() : 'standard'; 
-
-    switch ( $format ) { 
-		case 'audio' : 
-		case 'gallery' :
-		case 'image' :
-		case 'video' : ?>
-        
-            <h2 class="entry-title">
-                <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
-            </h2>
-               
-		<?php break; 
-	}
-}
-add_action('reactor_post_footer', 'reactor_do_post_footer_title', 1);
-
-/**
  * Post footer meta
  * in all formats
  * 
  * @since 1.0.0
  */
 function reactor_do_post_footer_meta() {
-	
-	if ( is_page_template('page-templates/front-page.php') ) {
-		$post_meta = reactor_option('frontpage_post_meta', 1);
-	}
-	elseif ( is_page_template('page-templates/news-page.php') ) {
-		$post_meta = reactor_option('newspage_post_meta', 1);
-	} else {
-		$post_meta = reactor_option('post_meta', 1);
-	}
-
-	if ( $post_meta && current_theme_supports('reactor-post-meta') ) {
-		reactor_post_meta();
+	if ( is_single() && current_theme_supports('reactor-post-meta') ) {
+		reactor_post_meta(array('show_author'=>false,'show_cat'=>false,'show_tag'=>true,'comments'=>false,'catpage'=>false,'link_date'=>false,'date_only'=>false));
 	}
 }
-add_action('reactor_post_footer', 'reactor_do_post_footer_meta', 2);
-
-/**
- * Post footer comments link 
- * in all formats
- * 
- * @since 1.0.0
- */
-function reactor_do_post_footer_comments_link() {
-	
-	if ( is_page_template('page-templates/front-page.php') ) {
-		$comments_link = reactor_option('frontpage_comment_link', 1);
-	}
-	elseif ( is_page_template('page-templates/news-page.php') ) {
-		$comments_link = reactor_option('newspage_comment_link', 1);
-	} else {
-		$comments_link = reactor_option('comment_link', 1);
-	}
-	
-	if ( comments_open() && $comments_link ) { ?>
-		<div class="comments-link">
-			<i class="icon social foundicon-chat" title="Comments"></i>
-			<?php comments_popup_link('<span class="leave-comment">' . __('Leave a Comment', 'reactor') . '</span>', __('1 Comment', 'reactor'), __('% Comments', 'reactor') ); ?>
-		</div><!-- .comments-link -->
-    <?php }
-}
-//add_action('reactor_post_after', 'reactor_do_post_footer_comments_link', 1);
+add_action('reactor_post_footer', 'reactor_do_post_footer_meta', 1);
 
 /**
  * Post after social links

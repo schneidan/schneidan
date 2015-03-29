@@ -120,6 +120,12 @@ if ( !function_exists('reactor_post_meta') ) {
 				if ( $meta ) {
 					$output = '<div class="entry-meta icons">' . $meta . '</div>';
 				}
+			} else if ( $args['show_tag'] ) {
+				$meta .= ( $tag_list ) ? '<div class="entry-tags">Topics: %2$s</div>' : '';
+				
+				if ( $meta ) {
+					$output = '<div class="entry-meta">' . $meta . '</div>';
+				}
 			}
 	
 			$post_meta = sprintf( $output, $categories_list, $tag_list, $date, $author, $comments );

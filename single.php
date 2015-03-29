@@ -28,13 +28,13 @@
 
                         <?php reactor_post_before(); ?>
                         
-					<?php // get post format and display code for that format
-                    if ( !get_post_format() ) : get_template_part('post-formats/format', 'standard'); 
-					else : get_template_part('post-formats/format', get_post_format() ); endif; ?>
+    					<?php // get post format and display code for that format
+                        if ( !get_post_format() ) : get_template_part('post-formats/format', 'standard'); 
+    					else : get_template_part('post-formats/format', get_post_format() ); endif; ?>
 
-                    <?php get_sidebar('secondary'); ?>
-                    
-                    <?php reactor_post_after(); ?>
+                        <?php get_sidebar('secondary'); ?>
+                        
+                        <?php reactor_post_after(); ?>
         
                     <?php endwhile; // end of the loop ?>
                     

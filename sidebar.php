@@ -13,7 +13,7 @@
 	$layout = reactor_option('', $default, '_template_layout'); ?>
 
     <?php // if layout has two sidebars and second sidear is active
-    if ( is_active_sidebar('sidebar-2') && ( '1c' != $layout ) ) : ?>
+    if ( is_active_sidebar('sidebar-2') ) : ?>
     
     <?php reactor_sidebar_before(); ?>
     
