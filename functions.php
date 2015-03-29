@@ -275,3 +275,70 @@ function db_filter_user_query( &$user_query ) {
         $user_query->query_where = str_replace( "user_nicename LIKE", "display_name LIKE", $user_query->query_where );
     return $user_query;
 }
+
+/**
+ * Last Modified date support for Dashboard
+ * 
+ * - Adds a Last Modified column to the Posts and Pages lists in wp-admin,
+ * displays the date, time and user who last modified, and is sortable.
+ * - Adds a Last Modified item to the Publish meta box on the Post and 
+ * Page editor screens.
+ * - Adds CSS to admin pages to style the additions.
+ * 
+ */
+if ( is_admin() ) {
+    function sd_get_modified_data( $post_id ) {
+        $m_orig     = get_post_field( 'post_modified', $post_id, 'raw' );
+        $m_stamp    = strtotime( $m_orig );
+        $modr_id    = get_post_meta( $post_id, '_edit_last', true );
+        $auth_id    = get_post_field( 'post_author', $post_id, 'raw' );
+        $user_id    = ! empty( $modr_id ) ? $modr_id : $auth_id;
+        $user_info  = get_userdata( $user_id );
+        $user_name  = $user_info->display_name;
+        return array( 'user_name'=>$user_name,'modified_date'=>$m_stamp );
+    }
+
+    function sd_post_columns_data( $column, $post_id ) {
+        switch ( $column ) {
+            case 'modified':
+                $modified   = sd_get_modified_data( $post_id );
+                echo sprintf( '<p class="mod-date">%1$s<br /><em>by</em> %2$s</p>',
+                    date( 'Y/m/d H:i', $modified['modified_date'] ),
+                    $modified['user_name']
+                );
+                break;
+        }
+    }
+
+    function sd_post_columns_display( $columns ) {
+        $columns['modified'] = 'Last Modified';
+        return $columns;
+    }
+
+    function sd_last_modified_register_sortable( $columns ) {
+        $columns["modified"] = "modified";
+        return $columns;
+    }
+
+    function sd_last_modified_publish_box( $post_id ) {
+        $modified = sd_get_modified_data( $post_id );
+        echo sprintf( '<div class="misc-pub-section misc-pub-section-last"><span id="modifiedtimestamp">Last modified: <strong>%1$s</strong></span></div>',
+            date( 'M j, Y @ G:i', $modified['modified_date'] )
+            );
+    }
+    
+    function sd_print_admin_css() {
+        echo '<style type="text/css">.fixed .column-modified{width:10%;}#message .last-modified-timestamp{font-weight:bold;}.misc-pub-section #modifiedtimestamp:before{content: \'\f145\';font: 400 20px/1 dashicons;speak: none;display: inline-block;padding: 0 5px 0 0;top: -1px;left: -1px;position: relative;vertical-align: top;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;text-decoration: none!important;color:#888;}</style>'."\n";
+    }
+
+    add_action ( 'post_submitbox_misc_actions', 'sd_last_modified_publish_box', 1 );
+    add_action ( 'admin_print_styles-edit.php', 'sd_print_admin_css' );
+    add_action ( 'admin_print_styles-post.php', 'sd_print_admin_css' );
+    add_action ( 'admin_print_styles-post-new.php', 'sd_print_admin_css' );
+    add_action ( 'manage_posts_custom_column', 'sd_post_columns_data', 10, 2 );
+    add_action ( 'manage_pages_custom_column', 'sd_post_columns_data', 10, 2 );
+    add_filter ( 'manage_edit-post_columns', 'sd_post_columns_display' );
+    add_filter ( 'manage_edit-page_columns', 'sd_post_columns_display' );
+    add_filter ( 'manage_edit-post_sortable_columns', 'sd_last_modified_register_sortable' );
+    add_filter ( 'manage_edit-page_sortable_columns', 'sd_last_modified_register_sortable' );
+}
