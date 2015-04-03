@@ -114,6 +114,18 @@ function reactor_do_standard_format_sticky() {
  * @since 1.0.0
  */
 function reactor_do_standard_header_titles() {
+
+	$categories_list = '';
+	$categories_link = '';
+	$categories = get_the_category();
+	end($categories);
+	foreach($categories as $category) {
+		if ( strtolower($category->slug) != 'uncategorized' && $category->category_parent == 0) {
+			$categories_list = $category->name;
+			$categories_link = get_category_link( $category->term_id );
+		}
+	}
+
 	$show_titles = reactor_option('frontpage_show_titles', 1);
 	$link_titles = reactor_option('frontpage_link_titles', 0);
 	
@@ -126,6 +138,7 @@ function reactor_do_standard_header_titles() {
 	}
     elseif ( !get_post_format() && !is_page_template('page-templates/front-page.php') ) {  ?>    
 		<?php if ( is_single() ) { ?>
+		<a href="<?php echo $categories_link; ?>" title="<?php echo esc_attr( sprintf( __('All posts in %s', 'reactor'), $categories_list ) ); ?>" rel="bookmark"><h3 class="entry-category"><?php echo $categories_list; ?></h3></a>
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 		<?php } else { ?>
 		<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>

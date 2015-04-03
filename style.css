@@ -380,6 +380,17 @@ body.page-template-port-page .frontpage-post .front-thumbnail {
     background: rgba(0, 0, 0, 1.0);
     box-shadow:1px 1px 1px rgba(0,0,0,.75);
 }
+.single h3.entry-category {
+    letter-spacing: .05em;
+    color: rgba(243, 243, 243, 1.0);
+    text-transform: uppercase;
+    font-size: 1.25em;
+    line-height: 1.2;
+    padding: .25em .5em;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 1.0);
+    box-shadow:1px 1px 1px rgba(0,0,0,.75);
+}
 
 #socialrow {
     margin: 1.5em auto;
@@ -515,22 +526,39 @@ body.archive .entry-body {
 }
 /* category colors */
 
-.category-cameras .frontpage-post h3.entry-category,
-.dpe-flexible-posts .category-cameras h5 {
-    background: rgba(68, 141, 55, .9);
+.category-places .frontpage-post h3.entry-category,
+.dpe-flexible-posts .category-places h5 {
+    background: rgba(68, 141, 55, .8);
 }
 
 .category-events .frontpage-post h3.entry-category,
 .dpe-flexible-posts .category-events h5 {
-    background: rgba(204, 162, 51, .9);
+    background: rgba(204, 162, 51, .8);
 }
 
-.category-life-in-denver .frontpage-post h3.entry-category,
-.dpe-flexible-posts .category-life-in-denver h5 {
-    background: rgba(56, 60, 117, .9);
+.category-in-my-bag .frontpage-post h3.entry-category,
+.dpe-flexible-posts .category-in-my-bag h5 {
+    background: rgba(216, 93, 39, .8);
 }
+.category-reviews .frontpage-post h3.entry-category,
+.dpe-flexible-posts .category-reviews h5 {
+    background: rgba(46, 68, 147, .8);
+}
+.category-year-in-review .frontpage-post h3.entry-category,
+.dpe-flexible-posts .category-year-in-review h5 {
+    background: rgba(206, 38, 77, .8);
+}
+.category-alternative-process .frontpage-post h3.entry-category,
+.single .category-alternative-process h3.entry-category,
+.dpe-flexible-posts .category-alternative-process h5 {
+    background: rgba(26, 128, 134, .8);
+}
+.category-resources .frontpage-post h3.entry-category,
+.dpe-flexible-posts .category-resources h5 {
+    background: rgba(69, 35, 174, .8);
+}
+
 /* single article page */
-
 .posted-time {
     float: right;
 }
@@ -806,7 +834,7 @@ ul.dpe-flexible-posts {
 .dpe-flexible-posts div.cat-thumbnail div.cat-imgholder {
     width: 100%;
     height: 0;
-    padding-bottom: 58.66667%;
+    padding-bottom: 59.66667%;
     position: relative;
 }
 
