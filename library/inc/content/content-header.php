@@ -73,8 +73,13 @@ function reactor_do_title_logo() { ?>
 				</div><!-- .site-logo -->
 				<?php endif; // end if logo ?>
 				<div class="title-area">
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
+					<?php if ( is_front_page() ) : ?>
+					<h1 class="site-title"><?php bloginfo('name'); ?></h1>
+					<h2 class="site-description"><?php bloginfo('description'); ?></h2>
+				<?php else : ?>
+					<p class="site-title"><?php bloginfo('name'); ?></p>
 					<p class="site-description"><?php bloginfo('description'); ?></p>
+				<?php endif; ?>
 				</div>
 			</div><!-- .column -->
 		</div><!-- .row -->

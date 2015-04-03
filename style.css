@@ -46,7 +46,9 @@ p {
 .row {
     max-width: 72em;
 }
-
+div.top-bar-container {
+    z-index:10000000;
+}
 .site-header {
     height: 1.5em;
     margin: 0;
@@ -57,6 +59,10 @@ p {
     border: none;
     padding: 0;
     margin: 0;
+}
+
+.site-header > .row {
+    display:none;
 }
 
 #disqus_thread {
@@ -71,6 +77,13 @@ p {
 }
 .gallery ul.clearing-thumbs li.gallery-icon {
     text-align:center;
+}
+
+.entry-content .gss-info {
+    font-weight:400;
+    font-size:1em;
+    color:#e4e4e4;
+    background-color:#222;
 }
 /* forms and stuff */
 
@@ -437,8 +450,19 @@ body.page-template-port-page .frontpage-post .front-thumbnail {
     margin-bottom: .75em;
     margin: 0 .5em;
 }
-/* tag and category images */
 
+.single h1.entry-title {
+    font-size: 2.25em;
+    margin: .5em 0;
+    text-transform: uppercase;
+}
+.single h2.entry-subtitle {
+    font-size: 1.35em;
+    margin: 0 0 .5em;
+    text-transform:none;
+}
+
+/* tag and category images */
 body.page h1.entry-title {
     font-size: 2em;
     margin: 0 0 .5em;
@@ -466,7 +490,11 @@ body.archive .entry-body {
     font-size: 1.4em;
     margin-left: 27.5%;
 }
-
+.catpage-post h3 {
+    margin-top: .5em;
+    font-size: 1em;
+    margin-left: 27.5%;
+}
 .catpage-post .entry-meta {
     margin-left: 27.5%;
     padding: .5em 0;

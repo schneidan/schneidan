@@ -23,9 +23,9 @@ function convert_smart_quotes($string)  {
 //Twitter Cards
 $twitter_thumbs = '';
 $ogtype = 'blog';
-$twitter_desc   = '';
-if ( is_single() || is_page() ) {
-    $twitter_thumbs = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
+$twitter_desc = ( is_front_page() ) ? get_bloginfo('description') : '';
+if ( is_singular() && ! is_front_page() ) {
+    $twitter_thumbs = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
     $temp_post = get_post($post->ID);
     $ogtype = 'article';
     $twitter_desc = strip_tags(get_the_excerpt());
@@ -37,16 +37,15 @@ $twitter_thumb = ( ($twitter_thumbs != '') ? $twitter_thumbs[0] : get_stylesheet
 ?>
 <link rel="publisher" href="http://plus.google.com/111763340133522077402" />
 
-<meta name="twitter:card" value="summary" />
-<meta name="twitter:url" value="<?php echo $twitter_url; ?>" />
-<meta name="twitter:title" value="<?php echo $twitter_title; ?>" />
-<meta name="twitter:description" value="<?php echo $twitter_desc; ?>" />
-<meta name="twitter:image" value="<?php echo $twitter_thumb; ?>" />
-<meta name="twitter:site" value="@schneidan" />
-<meta name="twitter:domain" value="schneidan.com" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:url" content="<?php echo $twitter_url; ?>" />
+<meta name="twitter:title" content="<?php echo $twitter_title; ?>" />
+<meta name="twitter:description" content="<?php echo $twitter_desc; ?>" />
+<meta name="twitter:image" content="<?php echo $twitter_thumb; ?>" />
+<meta name="twitter:site" content="@schneidan" />
+<meta name="twitter:domain" content="schneidan.com" />
 <meta name="twitter:creator" content="@schneidan" />
 
-<meta property="fb:app_id" content="########"/>
 <meta property="og:title" content="<?php if ( is_single() ) { wp_title(); } else { get_bloginfo('name'); } ?>" />
 <meta property="og:type" content="<?php echo $ogtype; ?>" />
 <meta property="og:url" content="<?php echo get_permalink() ?>" />

@@ -85,7 +85,7 @@ function reactor_post_catpage_format() {
 		<div class="catpage-post">
 	<?php } ?>
 		<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-		</a>
+		<h3 class="entry-subtitle"><?php the_subtitle(); ?></h3>
 	<?php reactor_post_meta(array('show_author'=>true,'show_cat'=>false,'show_tag'=>false,'comments'=>false,'catpage'=>true,'link_date'=>false,'date_only'=>true)); ?>
 	</div>
 <?php }
@@ -140,6 +140,7 @@ function reactor_do_standard_header_titles() {
 		<?php if ( is_single() ) { ?>
 		<a href="<?php echo $categories_link; ?>" title="<?php echo esc_attr( sprintf( __('All posts in %s', 'reactor'), $categories_list ) ); ?>" rel="bookmark"><h3 class="entry-category"><?php echo $categories_list; ?></h3></a>
 		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<h2 class="entry-subtitle"><?php the_subtitle(); ?></h2>
 		<?php } else { ?>
 		<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 		<?php } ?>
@@ -186,12 +187,12 @@ function reactor_do_page_single() {
 		<div class="row" id="socialrow">
 			<div class="large-3 large-centered medium-5 medium-centered small-8 small-centered columns">
 				<ul class="inline-list">
-					<li><a href="http://twitter.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-twitter.png" /></a></li>
-					<li><a href="http://facebook.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-facebook.png" /></a></li>
-					<li><a href="http://plus.google.com/+DanielJSchneider"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-gplus.png" /></a></li>
-					<li><a href="http://flickr.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-flickr.png" /></a></li>
-					<li><a href="http://tumblr.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-tumblr.png" /></a></li>
-					<li><a href="<?php echo get_home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-rss.png" /></a></li>
+					<li><a href="http://twitter.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-twitter.png" alt="Follow on Twitter" /></a></li>
+					<li><a href="http://facebook.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-facebook.png" alt="Follow on Facebook" /></a></li>
+					<li><a href="http://plus.google.com/+DanielJSchneider"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-gplus.png" alt="Follow on Google+" /></a></li>
+					<li><a href="http://flickr.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-flickr.png" alt="Follow on Flickr" /></a></li>
+					<li><a href="http://tumblr.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-tumblr.png" alt="Follow on Tumblr" /></a></li>
+					<li><a href="<?php echo get_home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-rss.png" alt="Follow via RSS" /></a></li>
 				</ul>
 			</div>
 		</div>
