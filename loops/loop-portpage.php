@@ -15,6 +15,8 @@ $number_posts = 25;
         'post_type' => 'page',
         'posts_per_page' => $number_posts,
         'post_parent' => $post->ID,
+        'order' => 'ASC',
+        'orderby' => 'menu_order',
         );
     
     global $wp_query; 
@@ -24,7 +26,7 @@ $number_posts = 25;
     
     <?php reactor_loop_before(); ?>
 
-    <ul class="large-block-grid-3 medium-block-grid-2 small-block-grid-1">
+    <ul class="large-block-grid-4 medium-block-grid-2 small-block-grid-1">
     	
         <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 

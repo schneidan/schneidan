@@ -65,6 +65,13 @@ p {
     clear: both;
     padding-top: 2em;
 }
+
+.gallery ul.clearing-thumbs br {
+    display:none;
+}
+.gallery ul.clearing-thumbs li.gallery-icon {
+    text-align:center;
+}
 /* forms and stuff */
 
 .button,
@@ -328,6 +335,9 @@ body.home footer#footer {
     margin: 0;
     padding-bottom: 90%;
 }
+body.page-template-port-page .frontpage-post .front-thumbnail {
+    padding-bottom: 250%;
+}
 
 .frontpage-post h2.entry-title {
     position: absolute;
@@ -361,17 +371,18 @@ body.home footer#footer {
     top: 2%;
     left: 2.5%;
     letter-spacing: .05em;
-    color: rgba(243, 243, 243, 1);
+    color: rgba(243, 243, 243, 1.0);
     text-transform: uppercase;
     font-size: 1.25em;
     line-height: 1.2;
     padding: .25em .5em;
     text-decoration: none;
     background: rgba(0, 0, 0, 1.0);
+    box-shadow:1px 1px 1px rgba(0,0,0,.75);
 }
 
 #socialrow {
-    margin-top: 1em;
+    margin: 1.5em auto;
 }
 
 #socialrow .inline-list li {
@@ -389,25 +400,26 @@ body.home footer#footer {
 }
 /* social sharing */
 
-.post-before {
+.single .post-before {
     position: absolute;
     left: -20%;
 }
 
-.post-before .post-body-social ul li {
+.single .post-before .post-body-social ul li {
     float: none;
     width: 2em;
     height: 2em;
     overflow: hidden;
     margin-bottom: .75em;
+    margin-left:0;
 }
 
-.post-after .post-body-social ul {
+.single .post-after .post-body-social ul {
     display: table;
     margin: 1em auto;
 }
 
-.post-after .post-body-social ul li {
+.single .post-after .post-body-social ul li {
     width: 2em;
     height: 2em;
     overflow: hidden;
@@ -447,11 +459,6 @@ body.archive .entry-body {
 .catpage-post .entry-meta {
     margin-left: 27.5%;
     padding: .5em 0;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-}
-
-.catpage-post .entry-meta {
     text-transform: uppercase;
     font-size: .8em;
 }
@@ -542,11 +549,25 @@ body.single .entry-meta .entry-tags {
     margin: 0;
 }
 
-body.page h3,
-body.single h3,
-body.single h3,
-body.single h3 {
-    margin: 1.25em 0 1.1em;
+body.page .entry-content h2,
+body.single .entry-content h2,
+body.page .entry-content h3,
+body.single .entry-content h3 {
+    margin: 1.75em 0 1em;
+}
+
+.page .entry-content ul,
+.single .entry-content ul,
+.page .entry-content ol,
+.single .entry-content ol {
+    margin:.25em 1.5em 1.5em;
+}
+
+.page .entry-content ul li,
+.single .entry-content ul li,
+.page .entry-content ol li,
+.single .entry-content ol li {
+    margin-bottom:.5em;
 }
 
 body.page .wp-caption.figure-full,
@@ -614,7 +635,7 @@ body.single div#sidebar-2 {
 body.page figure.figure-large,
 body.single figure.figure-large {
     width: 100%;
-    margin: 1.5em 0;
+    margin: 2em 0;
 }
 
 body.page figure.figure-medium,
@@ -716,6 +737,7 @@ ul.dpe-flexible-posts {
     padding: .25em .5em;
     text-decoration: none;
     background: rgba(0, 0, 0, 1.0);
+    box-shadow:1px 1px 1px rgba(0,0,0,0.75);
 }
 
 .dpe-flexible-posts h4 {
@@ -852,6 +874,19 @@ div.inline-cube-ad {
     .post-before {
         left: -2.5em;
     }
+    #sidebar-frontpage .frontpage-widget.widget_dpe_fp_widget {
+        display:inline-block; width:32%;
+        margin-right:2%;
+    }
+    #sidebar-frontpage .frontpage-widget.widget_dpe_fp_widget:last-child {
+        margin-right:0;
+    }
+    body.front-page .frontpage-post .front-thumbnail {
+        padding-bottom:70%;
+    }
+    body.page-template-port-page .frontpage-post .front-thumbnail {
+        padding-bottom:120%;
+    }
 }
 
 @media only screen and (min-width: 58.063em) {
@@ -873,6 +908,9 @@ div.inline-cube-ad {
         width: 100%;
         background-size: auto 1.6em;
     }
+    .single .post-before .post-body-social {
+        display:none;
+    }
 }
 
 @media only screen and (max-width: 640px) {
@@ -888,7 +926,7 @@ div.inline-cube-ad {
         margin: .75em 0;
     }
     .frontpage-post h2.entry-title {
-        font-size: 1.4em;
+        font-size: 1.25em;
     }
     .related-image h5.entry-title {
         font-size: 1.05em;
@@ -896,10 +934,33 @@ div.inline-cube-ad {
     h1 {
         font-size: 1.5em;
     }
+    h2 {
+        font-size: 1.33em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
     .posted-time {
         float: none;
         clear: left;
         display: block;
+    }
+    .catpage-post h2 {
+        font-size:1.15em;
+        line-height:1.3;
+        margin-bottom:0;
+    }
+    body.archive .entry-body {
+        margin-bottom: 1em;
+    }
+    .cat-imgholder {
+        padding-bottom:100%;
+    }
+    .catpage-post .entry-meta .by-author {
+        display:none;
+    }
+    .catpage-post .entry-meta .posted-time {
+        clear:none;
     }
     body.single header.entry-header .entry-meta {
         font-size: .85em;
@@ -913,5 +974,24 @@ div.inline-cube-ad {
     body.single .wp-caption.figure-thumbnail {
         max-width: 50%;
         padding: 0;
+    }
+    #sidebar-frontpage .frontpage-widget.widget_dpe_fp_widget {
+        width:100%;
+        margin-right:0;
+    }
+    body.front-page .frontpage-post .front-thumbnail {
+        padding-bottom:60%;
+    }
+    body.front-page .dpe-flexible-posts div.cat-thumbnail div.cat-imgholder {
+        padding-bottom:40%;
+    }
+    .dpe-flexible-posts h5 {
+        font-size:.9em;
+    }
+    .frontpage-post h3.entry-category {
+        font-size:1.1em;
+    }
+    body.page-template-port-page .frontpage-post .front-thumbnail {
+        padding-bottom:50%;
     }
 }

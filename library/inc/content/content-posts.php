@@ -168,9 +168,10 @@ add_action('reactor_post_footer', 'reactor_do_post_footer_meta', 1);
  * @since 1.0.0
  */
 function reactor_do_page_single() {
-	if ( is_front_page() ) { ?>
+	wp_reset_query();
+	if ( is_front_page() || is_page_template( 'page-templates/port-page.php' ) ) { ?>
 		<div class="row" id="socialrow">
-			<div class="large-3 large-centered medium-5 medium-centered small-9 small-centered columns">
+			<div class="large-3 large-centered medium-5 medium-centered small-8 small-centered columns">
 				<ul class="inline-list">
 					<li><a href="http://twitter.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-twitter.png" /></a></li>
 					<li><a href="http://facebook.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-facebook.png" /></a></li>
@@ -183,7 +184,7 @@ function reactor_do_page_single() {
 		</div>
 	<?php }
 }
-add_action('reactor_content_after', 'reactor_do_page_single', 4);
+add_action('reactor_content_after', 'reactor_do_page_single', 1);
 
 /**
  * Post social
