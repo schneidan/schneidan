@@ -33,7 +33,7 @@ if ( is_singular() && ! is_front_page() ) {
 }
 $twitter_url    = get_permalink();
 $twitter_title  = get_the_title();
-$twitter_thumb = ( ($twitter_thumbs != '') ? $twitter_thumbs[0] : get_stylesheet_directory_uri() . '/images/facebooklogo600.jpg' );
+$twitter_thumb = ( ($twitter_thumbs != '') ? $twitter_thumbs[0] : get_stylesheet_directory_uri() . '/images/schneidan-D-logo-fb.png' );
 ?>
 <link rel="publisher" href="http://plus.google.com/111763340133522077402" />
 
