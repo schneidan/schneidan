@@ -1,5 +1,22 @@
 $j=jQuery.noConflict();
 
+// create duplicates of top-level menu items in their submenus on small screens
+function addTopBarParentLinks() {
+	$j.fn.outerHTML = function(s) {
+	    return s
+	        ? this.before(s).remove()
+	        : jQuery("<p>").append(this.eq(0).clone()).html();
+	};
+	$j(".top-bar-menu > li.has-dropdown").each(function() {
+		var parentLink = '<li class="menu-item menu-item-type-taxonomy menu-item-object-category">' + $j(this).find("a").outerHTML() + '</li>';
+		$j(this).find("ul.dropdown>li:eq(0)").after(parentLink);
+	});
+}
+if ( $j(window).width() <= 940) {
+	addTopBarParentLinks();
+}
+
+// Add classes to image-containing wp-caption elements for responsive styling
 function addFigureClassToImages() {
 	$j('img.size-thumbnail').each(function(){
 		$j(this).parents('figure.wp-caption').addClass('figure-thumbnail');
@@ -18,13 +35,15 @@ $j(document).ready(function(){
 	addFigureClassToImages();
 });
 
+// clear the search box when it's focused
 $j('input#s').focus( function() {
 	var save_this = $j(this);
     window.setTimeout (function(){ 
        save_this.val(''); 
     },10);
-   });
+});
 
+// show the search box and focus it when the button is clicked
 $j('.show-search').on('click', function(){
 	$j(this).hide();
 	$j('.hidden-form').animate({
@@ -34,6 +53,7 @@ $j('.show-search').on('click', function(){
 	});
 });
 
+// don't submit the search form if it's empty
 $j('#searchform').submit(function() {
     if ($j.trim($j("#s").val()) === "") {
     	$j('input#s').focus();
