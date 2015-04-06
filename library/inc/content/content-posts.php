@@ -191,7 +191,7 @@ function reactor_do_page_single() {
 					<li><a href="http://facebook.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-facebook.png" alt="Follow on Facebook" /></a></li>
 					<li><a href="http://plus.google.com/+DanielJSchneider"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-gplus.png" alt="Follow on Google+" /></a></li>
 					<li><a href="http://flickr.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-flickr.png" alt="Follow on Flickr" /></a></li>
-					<li><a href="http://tumblr.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-tumblr.png" alt="Follow on Tumblr" /></a></li>
+					<li><a href="http://schneidan.tumblr.com"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-tumblr.png" alt="Follow on Tumblr" /></a></li>
 					<li><a href="<?php echo get_home_url(); ?>/feed/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-rss.png" alt="Follow via RSS" /></a></li>
 				</ul>
 			</div>

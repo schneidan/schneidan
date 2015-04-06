@@ -18,12 +18,19 @@ $j(document).ready(function(){
 	addFigureClassToImages();
 });
 
+$j('input#s').focus( function() {
+	var save_this = $j(this);
+    window.setTimeout (function(){ 
+       save_this.val(''); 
+    },10);
+   });
+
 $j('.show-search').on('click', function(){
 	$j(this).hide();
 	$j('.hidden-form').animate({
 		width:'100%'
-	},100,function(){
-		$j('input#s').val('').focus();
+	},50,function(){
+		$j('.hidden-form input#s').focus();
 	});
 });
 
