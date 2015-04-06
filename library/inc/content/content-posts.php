@@ -243,7 +243,7 @@ function reactor_do_post_social() {
 		//Email This
 		$social_string .= sprintf(
 		    '<li class="post-meta-social pm-email"><a href="%1$s"><img src="%2$s" alt="Share by Email" /></a></li>',
-		    get_permalink() . '/email',
+		    get_permalink() . 'email',
 		    get_stylesheet_directory_uri() . '/images/icon-email-round.png'
 		);
 		$social_string .= '</div>';
