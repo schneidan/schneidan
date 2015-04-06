@@ -342,3 +342,63 @@ if ( is_admin() ) {
     add_filter ( 'manage_edit-post_sortable_columns', 'sd_last_modified_register_sortable' );
     add_filter ( 'manage_edit-page_sortable_columns', 'sd_last_modified_register_sortable' );
 }
+
+class footer_combined_subscribe_follow_widget extends WP_Widget
+{
+    public function __construct()
+    {
+            parent::__construct(
+                'footer_combined_subscribe_follow_widget',
+                __('Subscribe/Follow MegaWidget', 'footer_combined_subscribe_follow_widget'),
+                array('description' => __('People most follow or subscripe to the site!', 'footer_combined_subscribe_follow_widget'), )
+            );
+    }
+
+    public function widget($args, $instance)
+    {
+        // It's a big ad.
+        echo '
+            <div class="row" id="socialrow">
+                <ul class="inline-list">
+                    <li><a href="http://twitter.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-twitter.png" alt="Follow on Twitter" /></a></li>
+                    <li><a href="http://facebook.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-facebook.png" alt="Follow on Facebook" /></a></li>
+                    <li><a href="http://plus.google.com/+DanielJSchneider"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-gplus.png" alt="Follow on Google+" /></a></li>
+                    <li><a href="http://flickr.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-flickr.png" alt="Follow on Flickr" /></a></li>
+                    <li><a href="http://schneidan.tumblr.com"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-tumblr.png" alt="Follow on Tumblr" /></a></li>
+                    <li><a href="<?php echo get_home_url(); ?>/feed/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-rss.png" alt="Follow via RSS" /></a></li>
+                </ul>
+            </div>
+            <div class="jetpack_subscription_widget">
+                <h4 class="widget-title">Subscribe by Email</h4>
+                <form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-2">
+                    <div id="subscribe-text"></div>                 <p id="subscribe-email">
+                        <label id="jetpack-subscribe-label" for="subscribe-field" style="clip: rect(1px 1px 1px 1px); position: absolute; height: 1px; width: 1px; overflow: hidden;">
+                            Email Address:</label>
+                        <input type="email" name="email" value="" id="subscribe-field" placeholder="">
+                        </p>
+
+                        <p id="subscribe-submit">
+                            <input type="hidden" name="action" value="subscribe">
+                            <input type="hidden" name="source" value="' . get_permalink() . '">
+                            <input type="hidden" name="sub-type" value="widget">
+                            <input type="hidden" name="redirect_fragment" value="blog_subscription-2">
+                            <input type="submit" value="Subscribe" name="jetpack_subscriptions_widget">
+                        </p>
+                    </form>
+                <script>
+                    ( function( d ) {
+                        if ( ( \'placeholder\' in d.createElement( \'input\' ) ) ) {
+                            var label = d.getElementById( \'jetpack-subscribe-label\' );
+                            label.style.clip     = \'rect(1px, 1px, 1px, 1px)\';
+                            label.style.position = \'absolute\';
+                            label.style.height   = \'1px\';
+                            label.style.width    = \'1px\';
+                            label.style.overflow = \'hidden\';
+                        }
+                    } ) ( document );
+                </script>
+            </div>';
+    }
+}
+function register_footer_combined_subscribe_follow_widget() { register_widget('footer_combined_subscribe_follow_widget'); }
+add_action( 'widgets_init', 'register_footer_combined_subscribe_follow_widget' );

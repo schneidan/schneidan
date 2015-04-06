@@ -198,7 +198,7 @@ function reactor_do_page_single() {
 		</div>
 	<?php }
 }
-add_action('reactor_content_after', 'reactor_do_page_single', 1);
+//add_action('reactor_content_after', 'reactor_do_page_single', 1);
 
 /**
  * Post social
