@@ -118,6 +118,7 @@ form#contactForm .large-7 {
     right: 0;
 }
 
+body.search input#s,
 .top-bar-section input#s {
     top: 8px;
     height: 32px;
@@ -125,11 +126,18 @@ form#contactForm .large-7 {
     padding: 0 .5em .5em;
     color: #222;
 }
-
+body.search input#searchsubmit {
+    font-size: 1em;
+    line-height: 1;
+    font-weight: 600;
+    height: 35px;
+    padding:.5em;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,1.0);
+}
 .top-bar-section input#searchsubmit {
     background: url('./images/icon-search.png') no-repeat center center;
     background-size: cover;
-    line-height: 2em;
     font-size: 0.875em;
     height: 1.6em;
     width: 1.6em;
