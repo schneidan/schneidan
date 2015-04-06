@@ -11,10 +11,10 @@ Template: reactor
 */
 
 /* external links */
-body.single #content a[href^="http://"]:not([href*="schneidan.com"]):after,
-body.single #content a[href^="https://"]:not([href*="schneidan.com"]):after,
-body.page #content a[href^="http://"]:not([href*="schneidan.com"]):after,
-body.page #content a[href^="https://"]:not([href*="schneidan.com"]):after {
+body.single #content p a[href^="http://"]:not([href*="schneidan.com"]):after,
+body.single #content p a[href^="https://"]:not([href*="schneidan.com"]):after,
+body.page #content p a[href^="http://"]:not([href*="schneidan.com"]):after,
+body.page #content p a[href^="https://"]:not([href*="schneidan.com"]):after {
     content: "";
     background-image:url('./images/external-icon.png');
     background-attachment: center center;
@@ -363,7 +363,7 @@ body.home #content {
 }
 
 body.home footer#footer {
-    display: none;
+    margin-top:2em;
 }
 
 .frontpage-post {
@@ -594,43 +594,54 @@ body.archive .entry-body {
     background: #e6e6e6;
     color: #4e4e4e;
 }
+
+body.archive.category h1.archive-title {
+    padding:0 .5em;
+}
 /* category colors */
 
 .category-places .frontpage-post h3.entry-category,
 .single .category-places h3.entry-category,
-.dpe-flexible-posts .category-places h5 {
+.dpe-flexible-posts .category-places h5,
+header.archive-header h1.category-places {
     background: rgba(68, 141, 55, .8);
 }
 
 .category-events .frontpage-post h3.entry-category,
 .single .category-events h3.entry-category,
-.dpe-flexible-posts .category-events h5 {
+.dpe-flexible-posts .category-events h5,
+header.archive-header h1.category-events {
     background: rgba(204, 162, 51, .8);
 }
 
 .category-in-my-bag .frontpage-post h3.entry-category,
 .single .category-in-my-bag h3.entry-category,
-.dpe-flexible-posts .category-in-my-bag h5 {
+.dpe-flexible-posts .category-in-my-bag h5,
+header.archive-header h1.category-in-my-bag {
     background: rgba(216, 93, 39, .8);
 }
 .category-reviews .frontpage-post h3.entry-category,
 .single .category-reviews h3.entry-category,
-.dpe-flexible-posts .category-reviews h5 {
+.dpe-flexible-posts .category-reviews h5,
+header.archive-header h1.category-reviews {
     background: rgba(46, 68, 147, .8);
 }
 .category-year-in-review .frontpage-post h3.entry-category,
 .single .category-year-in-review h3.entry-category,
-.dpe-flexible-posts .category-year-in-review h5 {
+.dpe-flexible-posts .category-year-in-review h5,
+header.archive-header h1.category-year-in-review {
     background: rgba(206, 38, 77, .8);
 }
 .category-alternative-process .frontpage-post h3.entry-category,
 .single .category-alternative-process h3.entry-category,
-.dpe-flexible-posts .category-alternative-process h5 {
+.dpe-flexible-posts .category-alternative-process h5,
+header.archive-header h1.category-alternative-process {
     background: rgba(26, 128, 134, .8);
 }
 .category-resources .frontpage-post h3.entry-category,
 .single .category-resources h3.entry-category,
-.dpe-flexible-posts .category-resources h5 {
+.dpe-flexible-posts .category-resources h5,
+header.archive-header h1.category-resources {
     background: rgba(69, 35, 174, .8);
 }
 
@@ -933,7 +944,7 @@ ul.dpe-flexible-posts {
 .dpe-flexible-posts div.cat-thumbnail div.cat-imgholder {
     width: 100%;
     height: 0;
-    padding-bottom: 59.66667%;
+    padding-bottom: 58.66667%;
     position: relative;
 }
 

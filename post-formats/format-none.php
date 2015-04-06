@@ -10,12 +10,13 @@
 
 	<article id="post-0" class="post no-results not-found">
 		<header class="entry-header">
-			<h1 class="entry-title"><?php _e('That\'s not a thing', 'reactor'); ?></h1>
+			<h1 class="entry-title"><?php _e('Error 404 - Not Found', 'reactor'); ?></h1>
 		</header>
 
 		<div class="entry-content">
-			<h3>Error 404</h3>
-			<p><?php _e('Whoops -- we coudln\'t find that. Try another search?', 'reactor'); ?></p>
+			<h3>Cause that's not really a thing...</h3>
+			<p><?php _e('That page does not appear to actually exist. This error has been logged and will be investigated.', 'reactor'); ?></p>
+			<p><?php _e('Would you like to try searching for something else?', 'reactor'); ?></p>
 			<?php get_search_form(); ?>
 		</div><!-- .entry-content -->
 	</article><!-- #post-0 -->
