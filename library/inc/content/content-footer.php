@@ -39,7 +39,12 @@ function reactor_do_footer_content() { ?>
 		<div class="row">
 	        <div class="<?php reactor_columns( array( 8, 12, 8 ) ); ?>">
 				<div class="inner-footer">
-					<?php dynamic_sidebar('footer'); ?>       
+					<div class="large-6 medium-6 small-12 columns">
+						<?php dynamic_sidebar('sidebar-footer-left'); ?>
+					</div>
+					<div class="large-6 medium-6 small-12 columns">
+						<?php dynamic_sidebar('sidebar-footer-middle'); ?>
+					</div>
 				</div><!-- .inner-footer -->
 			</div><!-- .columns -->
                     

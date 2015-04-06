@@ -71,17 +71,26 @@ function reactor_register_sidebars() {
 		) );
 	}
 
-	if ( in_array( 'footer', $sidebars[0] ) ) {
-		$footer  = '<div id="%1$s" class="widget top-bar-widget hide-for-small ';
-		$footer .= 'large-' . reactor_get_widget_columns('sidebar-footer');
-		$footer .= ' medium-' . reactor_get_widget_columns('sidebar-footer');
-		$footer .= ' columns %2$s">';
+	if ( in_array( 'footer-one', $sidebars[0] ) ) {
 		register_sidebar( array(
-			'name'          => __('Footer', 'reactor'),
-			'id'            => 'sidebar-footer',
-			'description'   => 'Footer widget area',
+			'name'          => __('Footer Left', 'reactor'),
+			'id'            => 'sidebar-footer-left',
+			'description'   => 'Footer left widget area',
 			'class'         => '',
-			'before_widget' => $footer,
+			'before_widget' => '<div id="%1$s" class="widget frontpage-widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4>',
+		) );
+	}
+
+	if ( in_array( 'footer-two', $sidebars[0] ) ) {
+		register_sidebar( array(
+			'name'          => __('Footer Middle', 'reactor'),
+			'id'            => 'sidebar-footer-middle',
+			'description'   => 'Footer middle widget area',
+			'class'         => '',
+			'before_widget' => '<div id="%1$s" class="widget frontpage-widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4 class="widget-title">',
 			'after_title'   => '</h4>',
