@@ -20,16 +20,17 @@
                 
                 <?php reactor_inner_content_before(); ?>
 
-                    <article id="post-0" class="post error404 no-results not-found">
-                        <header class="entry-header"><h2>BROKEN</h2>
-                            <h1 class="entry-title"><?php _e('This is somewhat embarrassing, isn&rsquo;t it?', 'reactor'); ?></h1>
-                        </header>
-        
-                        <div class="entry-content panel">
-                            <p><?php _e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching will help.', 'reactor'); ?></p>
-                            <?php get_search_form(); ?>
-                        </div><!-- .entry-content -->
-                    </article><!-- #post-0 -->
+                <article id="post-0" class="post no-results not-found">
+                    <header class="entry-header">
+                        <h1 class="entry-title"><?php _e('That\'s not a thing', 'reactor'); ?></h1>
+                    </header>
+
+                    <div class="entry-content">
+                        <h3>Error 404</h3>
+                        <p><?php _e('Whoops -- we coudln\'t find that. Try another search?', 'reactor'); ?></p>
+                        <?php get_search_form(); ?>
+                    </div><!-- .entry-content -->
+                </article><!-- #post-0 -->
             
 				<div id="sidebar-2" class="sidebar large-12 small-12 columns" role="complementary">
                     <div id="related_widget-2" class="widget related_widget">

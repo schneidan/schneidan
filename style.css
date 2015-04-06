@@ -119,6 +119,7 @@ form#contactForm .large-7 {
 }
 
 body.search input#s,
+body.error404 input#s,
 .top-bar-section input#s {
     top: 8px;
     height: 32px;
@@ -126,6 +127,7 @@ body.search input#s,
     padding: 0 .5em .5em;
     color: #222;
 }
+body.error404 input#searchsubmit,
 body.search input#searchsubmit {
     font-size: 1em;
     line-height: 1;
