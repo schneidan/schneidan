@@ -104,7 +104,8 @@ div.top-bar-container {
 /* forms and stuff */
 
 .button,
-button {
+button,
+.Button {
     padding: 1rem 2.5em;
     font-size: 1rem;
     background-color: #545454;
@@ -112,7 +113,8 @@ button {
 }
 
 .button:hover,
-button:hover {
+button:hover,
+.Button:hover {
     background-color: #787878;
     border-color: #111;
 }
@@ -134,6 +136,9 @@ form#contactForm .large-7 {
     right: 0;
 }
 
+p#wp-email-button {
+    text-align:left;
+}
 .search input#s,
 .error404 input#s,
 .top-bar-section input#s {
@@ -144,7 +149,8 @@ form#contactForm .large-7 {
     color: #222;
 }
 .error404 input#searchsubmit,
-.search-no-results input#searchsubmit {
+.search-no-results input#searchsubmit,
+.wp-email-button input#wp-email-submit {
     font-size: 1em;
     line-height: 1;
     font-weight: 600;
@@ -436,7 +442,7 @@ body.page-template-port-page .frontpage-post .front-thumbnail {
 }
 
 #socialrow {
-    margin: 1em auto 2em;
+    margin: 1em auto;
 }
 
 #socialrow .inline-list li {
@@ -670,6 +676,29 @@ body.single .entry-content h3 {
     margin-bottom:.5em;
 }
 
+.page .entry-content blockquote,
+.single .entry-content blockquote {
+    border-left: .35em solid #5f5f5f;
+    margin: 1.5em 10px;
+    padding: 0 1em;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+.page .entry-content blockquote p,
+.single .entry-content blockquote p {
+    color:#b5b5b5;
+    display: inline-block;
+    line-height: 1.4;
+    margin-bottom:1.1em;
+}
+.page .entry-content blockquote p:last-child,
+.single .entry-content blockquote p:last-child {
+    margin-bottom:0;
+}
+.page .entry-content blockquote br,
+.single .entry-content blockquote br {
+    margin-bottom:.5em;
+}
+
 body.page .wp-caption.figure-full,
 body.single .wp-caption.figure-full {
     max-width: 120%;
@@ -770,7 +799,7 @@ figure.wp-caption figcaption.wp-caption-text {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     font-size: .9em;
     line-height: 1.35;
-    color: #999;
+    color: #b5b5b5;
 }
 
 figure.wp-caption.aligncenter {
@@ -949,16 +978,6 @@ div.inline-cube-ad {
         max-width: 30%;
         padding: 0;
     }
-    body.page header.entry-header,
-    body.page figure.figure-full,
-    body.page div#sidebar-2,
-    body.single header.entry-header,
-    body.single figure.figure-full,
-    body.single div#sidebar-2 {
-        margin-left: 0;
-        padding: 0 0 .75em;
-        width: auto;
-    }
     body.page figure.figure-thumbnail.alignright,
     body.single figure.figure-thumbnail.alignright,
     body.page figure.figure-medium.alignright,
@@ -1021,6 +1040,9 @@ div.inline-cube-ad {
         font-size: 16px;
         padding-top: 14px;
     }
+    .single h1.entry-title {
+        font-size:1.6em;
+    }
     #sidebar-2,
     .post-after .post-body-social {
         margin: .75em 0;
@@ -1074,6 +1096,23 @@ div.inline-cube-ad {
     body.single .wp-caption.figure-thumbnail {
         max-width: 50%;
         padding: 0;
+    }
+    .related-image .related-thumbnail {
+        padding-bottom:70%;
+    }
+    body.page div#sidebar-2,
+    body.single div#sidebar-2 {
+        margin-left: 10%;
+        padding: 0 0 .75em;
+        width: 80%;
+    }
+    body.page header.entry-header,
+    body.page figure.figure-full,
+    body.single header.entry-header,
+    body.single figure.figure-full {
+        margin-left: 0;
+        padding: 0 0 .75em;
+        width: 100%;
     }
     #sidebar-frontpage .frontpage-widget.widget_dpe_fp_widget {
         width:100%;
