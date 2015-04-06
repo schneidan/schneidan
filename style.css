@@ -555,24 +555,29 @@ body.archive .entry-body {
 /* category colors */
 
 .category-places .frontpage-post h3.entry-category,
+.single .category-places h3.entry-category,
 .dpe-flexible-posts .category-places h5 {
     background: rgba(68, 141, 55, .8);
 }
 
 .category-events .frontpage-post h3.entry-category,
+.single .category-events h3.entry-category,
 .dpe-flexible-posts .category-events h5 {
     background: rgba(204, 162, 51, .8);
 }
 
 .category-in-my-bag .frontpage-post h3.entry-category,
+.single .category-in-my-bag h3.entry-category,
 .dpe-flexible-posts .category-in-my-bag h5 {
     background: rgba(216, 93, 39, .8);
 }
 .category-reviews .frontpage-post h3.entry-category,
+.single .category-reviews h3.entry-category,
 .dpe-flexible-posts .category-reviews h5 {
     background: rgba(46, 68, 147, .8);
 }
 .category-year-in-review .frontpage-post h3.entry-category,
+.single .category-year-in-review h3.entry-category,
 .dpe-flexible-posts .category-year-in-review h5 {
     background: rgba(206, 38, 77, .8);
 }
@@ -582,6 +587,7 @@ body.archive .entry-body {
     background: rgba(26, 128, 134, .8);
 }
 .category-resources .frontpage-post h3.entry-category,
+.single .category-resources h3.entry-category,
 .dpe-flexible-posts .category-resources h5 {
     background: rgba(69, 35, 174, .8);
 }
