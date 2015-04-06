@@ -20,8 +20,7 @@
                 
                 <?php reactor_inner_content_before(); ?>
                 
-			<?php query_posts('showposts=25');
-			if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 			
 				<?php reactor_loop_before(); ?>
 				

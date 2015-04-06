@@ -22,8 +22,8 @@ $j('.show-search').on('click', function(){
 	$j(this).hide();
 	$j('.hidden-form').animate({
 		width:'100%'
-	},150,function(){
-		$j('input#s').focus();
+	},100,function(){
+		$j('input#s').val('').focus();
 	});
 });
 
