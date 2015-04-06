@@ -95,6 +95,10 @@ div.top-bar-container {
     text-align:center;
 }
 
+#slb_viewer_wrap .slb_theme_slb_black .slb_data_desc {
+    display:none!important;
+}
+
 .entry-content .gss-info {
     font-weight:400;
     font-size:1em;
