@@ -128,9 +128,14 @@ button:hover,
 }
 .contact-form input[type=email],
 .contact-form input[type=text],
+.contact-form textarea {
+    color:#222;
+    padding:.35em;
+}
 .contact-form input[type=submit] {
     color:#222;
     padding:.5em;
+    font-weight:400;
 }
 form#contactForm input[type='text'] {
     margin-left: 1em;
