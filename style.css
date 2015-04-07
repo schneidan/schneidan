@@ -126,12 +126,21 @@ button:hover,
 .contact-form.row {
     margin: 0;
 }
-
+.contact-form input[type=email],
+.contact-form input[type=text],
+.contact-form input[type=submit] {
+    color:#222;
+}
+.contact-form input[type=submit] {
+    padding:.5em;
+}
 form#contactForm input[type='text'] {
     margin-left: 1em;
     width: 15em;
 }
-
+.contact-form label span {
+    display:none;
+}
 form#contactForm .large-7 {
     margin-bottom: .5em;
 }
@@ -647,6 +656,12 @@ header.archive-header h1.category-alternative-process {
 .dpe-flexible-posts .category-resources h5,
 header.archive-header h1.category-resources {
     background: rgba(69, 35, 174, .8);
+}
+.category-digital .frontpage-post h3.entry-category,
+.single .category-digital h3.entry-category,
+.dpe-flexible-posts .category-digital h5,
+header.archive-header h1.category-digital {
+    background: rgba(129, 95, 34, 0.9);
 }
 
 /* single article page */
