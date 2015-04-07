@@ -130,8 +130,6 @@ button:hover,
 .contact-form input[type=text],
 .contact-form input[type=submit] {
     color:#222;
-}
-.contact-form input[type=submit] {
     padding:.5em;
 }
 form#contactForm input[type='text'] {
