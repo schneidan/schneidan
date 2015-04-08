@@ -1166,3 +1166,60 @@ div.inline-cube-ad {
         padding-bottom:50%;
     }
 }
+
+@media print {
+    body.page .wp-caption.figure-full,
+    body.single .wp-caption.figure-full,
+    body.page header.entry-header,
+    body.page figure.figure-full,
+    body.page div#sidebar-2,
+    body.single header.entry-header,
+    body.single figure.figure-full,
+    body.single div#sidebar-2 {
+        width: 100%;
+        margin-left:0;
+    }
+    a[href]:after {
+        content:none!important;
+    }
+    footer#footer {
+        border-top:2px solid #777;
+        margin-top:3em;
+    }
+    .top-bar-container,
+    #header .inner-header div.header-banner,
+    .noprint,
+    .sidebar,
+    .entry-thumbnail,
+    div#comments,
+    div#breadcrumbs,
+    header#header,
+    #relatedwrap,
+    .single-comments-link,
+    .entry-meta-tags,
+    .entry-meta-author,
+    .archive-header,
+    .adElement,
+    .post-body-social,
+    nav.footer-links,
+    .inner-footer,
+    #colophon a {
+        display: none!important;
+    }
+    .large-8 {
+        width: 100%;
+    }
+    .single .entry-content p {
+        margin: 0 0 1em;
+    }
+    .f-topbar-fixed {
+        padding-top: 0!important;
+    }
+    article + nav {
+        display: none;
+    }
+    p, article li {
+        font-size: .9em;
+        line-height:1.3;
+    }
+}
