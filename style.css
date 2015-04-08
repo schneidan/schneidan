@@ -11,6 +11,10 @@ Template: reactor
 */
 
 /* external links */
+body.single #content li a[href^="http://"]:not([href*="schneidan.com"]):after,
+body.single #content li a[href^="https://"]:not([href*="schneidan.com"]):after,
+body.page #content li a[href^="http://"]:not([href*="schneidan.com"]):after,
+body.page #content li a[href^="https://"]:not([href*="schneidan.com"]):after,
 body.single #content p a[href^="http://"]:not([href*="schneidan.com"]):after,
 body.single #content p a[href^="https://"]:not([href*="schneidan.com"]):after,
 body.page #content p a[href^="http://"]:not([href*="schneidan.com"]):after,
@@ -143,6 +147,12 @@ form#contactForm input[type='text'] {
 }
 .contact-form label span {
     display:none;
+}
+.contact-form label:after {
+    content:'*';
+    font-size:1.5em;
+    line-height: .5em;
+    color:#e32;
 }
 form#contactForm .large-7 {
     margin-bottom: .5em;
@@ -402,7 +412,9 @@ body.home footer#footer {
 body.page-template-port-page .frontpage-post .front-thumbnail {
     padding-bottom: 250%;
 }
-
+body.page-template-port-page footer#footer {
+    margin-top:2em;
+}
 .frontpage-post h2.entry-title {
     position: absolute;
     bottom: 0;
