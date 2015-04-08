@@ -257,6 +257,7 @@ p#wp-email-button {
 .jetpack_subscription_widget p#subscribe-email input {
     width: 100%;
     height: 2em;
+    color:#222;
 }
 
 .jetpack_subscription_widget p#subscribe-submit input {
