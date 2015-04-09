@@ -96,6 +96,32 @@ function reactor_register_sidebars() {
 			'after_title'   => '</h4>',
 		) );
 	}
+
+	if ( in_array( 'cameras', $sidebars[0] ) ) {
+		register_sidebar( array(
+			'name'          => __('Cameras Page', 'reactor'),
+			'id'            => 'sidebar-cameras',
+			'description'   => 'Cameras page top widget area',
+			'class'         => '',
+			'before_widget' => '<li><div id="%1$s" class="widget cameras-widget %2$s">',
+			'after_widget'  => '</div></li>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4>',
+		) );
+	}
+
+	if ( in_array( 'stories', $sidebars[0] ) ) {
+		register_sidebar( array(
+			'name'          => __('Stories page', 'reactor'),
+			'id'            => 'sidebar-stories',
+			'description'   => 'Stories page top widget area',
+			'class'         => '',
+			'before_widget' => '<li><div id="%1$s" class="widget stories-widget %2$s">',
+			'after_widget'  => '</div></li>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4>',
+		) );
+	}
 	
 }
 

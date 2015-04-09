@@ -25,7 +25,21 @@
                         <h1 <?php post_class('archive-title'); ?>><?php echo single_cat_title( '', false ); ?></h1>
                     </header><!-- .archive-header -->
                 <?php endif; // end have_posts() check ?> 
-                
+
+                <?php if ( is_category( 'cameras') ) : ?>
+                    <div class="category-sidebars">
+                        <?php get_sidebar('cameras'); ?>
+                    </div>
+                    <h2 class="category-side">All posts in Cameras:</h2>
+                <?php endif; // end cameras sidebar ?> 
+
+                <?php if ( is_category( 'stories') ) : ?>
+                    <div class="category-sidebars">
+                        <?php get_sidebar('stories'); ?>
+                    </div>
+                    <h2 class="category-side">All posts in Stories:</h2>
+                <?php endif; // end stories sidebar ?> 
+
 				<?php // get the loop
 				get_template_part('loops/loop', 'catpage'); ?>
                 
