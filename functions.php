@@ -376,6 +376,8 @@ class follow_me_widget extends WP_Widget
 function registerfollow_me_widget() { register_widget('follow_me_widget'); }
 add_action( 'widgets_init', 'registerfollow_me_widget' );
 
+add_filter( 'jetpack_enable_open_graph', '__return_false' );
+
 /**
  * Widget Custom Classes
  */
