@@ -1,6 +1,6 @@
 <?php
 /**
- * The loop for displaying posts on the category page template
+ * The loop for displaying posts on the blog page template
  *
  * @package schneidan
  * @subpackage loops
@@ -21,7 +21,6 @@ if ( get_query_var('paged') ) {
     $args = array(
         'post_type' => 'post',
         'posts_per_page' => $number_posts,
-        'cat' => get_queried_object_id(),
         'paged' => get_query_var( 'paged' ),
         );
     
@@ -38,6 +37,6 @@ if ( get_query_var('paged') ) {
 
         <?php endwhile; // end of the post loop ?>
 
-	<?php endif; ?>
+    <?php endif; ?>
         
     <?php reactor_loop_after(); ?>
