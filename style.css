@@ -23,7 +23,7 @@ body.page #content p a[href^="https://"]:not([href*="schneidan.com"]):after {
     background-image:url('./images/external-icon.png');
     background-position: center center;
     background-size:contain;
-    margin:0 0 .25em .25em;
+    margin:0 .1em .25em .25em;
     height:.65em;
     width:.65em;
     display:inline-block;
@@ -92,6 +92,9 @@ div.top-bar-container {
     padding-top: 2em;
 }
 
+body #slb_viewer_wrap .slb_theme_slb_baseline {
+    z-index:100056000;
+}
 .gallery ul.clearing-thumbs br {
     display:none;
 }
@@ -826,7 +829,7 @@ body.single figure.figure-thumbnail.alignright,
 body.page figure.figure-medium.alignright,
 body.single figure.figure-medium.alignright {
     margin-right: -10%;
-    padding: 0 0 .5em 1.5em;
+    padding: .35em 0 .5em 1.5em;
 }
 
 body.page figure.figure-thumbnail.alignleft,
@@ -834,7 +837,7 @@ body.single figure.figure-thumbnail.alignleft,
 body.page figure.figure-medium.alignleft,
 body.single figure.figure-medium.alignleft {
     margin-left: -10%;
-    padding: 0 1.5em .5em 0;
+    padding: .35em 1.5em .5em 0;
 }
 /* images */
 
