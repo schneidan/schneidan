@@ -10,12 +10,6 @@
  * @license GNU General Public License v2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  */
 
-/* function check_for_children( $cat_in ) {
-	return get_terms( $cat_in->taxonomy, array(
-		'parent' => $cat_in->term_id,
-		'hide_empty' => false
-		) );
-} /*
 
 /**
  * Front page main format
@@ -24,17 +18,6 @@
  * @since 1.0.0
  */
 function reactor_post_frontpage_format() {
-
-	/* $categories_list = '';
-	$categories_link = '';
-	$categories = get_the_category();
-	end($categories);
-	foreach($categories as $category) {
-		if ( strtolower($category->slug) != 'uncategorized' && ( $category->category_parent == 0 || !check_for_children( $category ) ) ) {
-			$categories_list = $category->name;
-			$categories_link = get_category_link( $category->term_id );
-		}
-	} */
 
 	$categories_list = '';
 	$categories_link = '';
@@ -79,17 +62,6 @@ add_action('reactor_post_portpage', 'reactor_post_frontpage_format', 1);
  */
 function reactor_post_catpage_format() {
 
-	/* $categories_list = '';
-	$categories_link = '';
-	$categories = get_the_category();
-	end($categories);
-	foreach($categories as $category) {
-		if ( strtolower($category->slug) != 'uncategorized' && ( $category->category_parent == 0 || !check_for_children( $category ) ) ) {
-			$categories_list = $category->name;
-			$categories_link = get_category_link( $category->term_id );
-		}
-	} */
-
 	$categories_list = '';
 	$categories_link = '';
 	$categories = get_the_category($post->ID);
@@ -124,38 +96,12 @@ add_action('reactor_post_catpage', 'reactor_post_catpage_format', 1);
 add_action('reactor_post_tagpage', 'reactor_post_catpage_format', 1);
 
 /**
- * Post featured tag
- * in format-standard
- * 
- * @since 1.0.0
- */
-function reactor_do_standard_format_sticky() { 
-	if ( is_sticky() ) { ?>
-		<div class="entry-featured">
-			<span class="label secondary"><?php echo apply_filters('reactor_featured_post_title', __('Featured Post', 'reactor')); ?></span>
-		</div>
-<?php }
-}
-//add_action('reactor_post_header', 'reactor_do_standard_format_sticky', 2);
-
-/**
  * Post header
  * in format-standard
  * 
  * @since 1.0.0
  */
 function reactor_do_standard_header_titles() {
-
-	/* $categories_list = '';
-	$categories_link = '';
-	$categories = get_the_category();
-	end($categories);
-	foreach($categories as $category) {
-		if ( strtolower($category->slug) != 'uncategorized' && ( $category->category_parent == 0 || !check_for_children( $category ) ) ) {
-			$categories_list = $category->name;
-			$categories_link = get_category_link( $category->term_id );
-		}
-	} */
 
 	$categories_list = '';
 	$categories_link = '';
@@ -219,31 +165,6 @@ function reactor_do_post_footer_meta() {
 add_action('reactor_post_footer', 'reactor_do_post_footer_meta', 1);
 
 /**
- * Post after social links
- * in single.php
- * 
- * @since 1.0.0
- */
-function reactor_do_page_single() {
-	wp_reset_query();
-	if ( is_front_page() || is_page_template( 'page-templates/port-page.php' ) ) { ?>
-		<div class="row" id="socialrow">
-			<div class="large-3 large-centered medium-5 medium-centered small-8 small-centered columns">
-				<ul class="inline-list">
-					<li><a href="http://twitter.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-twitter.png" alt="Follow on Twitter" /></a></li>
-					<li><a href="http://facebook.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-facebook.png" alt="Follow on Facebook" /></a></li>
-					<li><a href="http://plus.google.com/+DanielJSchneider"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-gplus.png" alt="Follow on Google+" /></a></li>
-					<li><a href="http://flickr.com/schneidan"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-flickr.png" alt="Follow on Flickr" /></a></li>
-					<li><a href="http://schneidan.tumblr.com"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-tumblr.png" alt="Follow on Tumblr" /></a></li>
-					<li><a href="<?php echo get_home_url(); ?>/feed/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-rss.png" alt="Follow via RSS" /></a></li>
-				</ul>
-			</div>
-		</div>
-	<?php }
-}
-//add_action('reactor_content_after', 'reactor_do_page_single', 1);
-
-/**
  * Post social
  * in single.php
  * 
@@ -294,27 +215,6 @@ function reactor_do_post_social() {
 	}
 }
 add_action('reactor_post_social', 'reactor_do_post_social', 1);
-
-/**
- * Single post nav 
- * in single.php
- * 
- * @since 1.0.0
- */
-function reactor_do_nav_single() {
-    if ( is_single() ) { 
-    $exclude = ( reactor_option('frontpage_exclude_cat', 1) ) ? reactor_option('frontpage_post_category', '') : ''; ?>
-        <nav class="nav-single">
-            <span class="nav-previous alignleft">
-            <?php previous_post_link('%link', '<span class="meta-nav">' . _x('&larr;', 'Previous post link', 'reactor') . '</span> %title', false, $exclude); ?>
-            </span>
-            <span class="nav-next alignright">
-            <?php next_post_link('%link', '%title <span class="meta-nav">' . _x('&rarr;', 'Next post link', 'reactor') . '</span>', false, $exclude); ?>
-            </span>
-        </nav><!-- .nav-single -->
-<?php }
-}
-//add_action('reactor_post_after', 'reactor_do_nav_single', 1);
 
 /**
  * Comments 
