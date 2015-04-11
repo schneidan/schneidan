@@ -10,12 +10,12 @@
  * @license GNU General Public License v2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  */
 
-function check_for_children( $cat_in ) {
+/* function check_for_children( $cat_in ) {
 	return get_terms( $cat_in->taxonomy, array(
 		'parent' => $cat_in->term_id,
 		'hide_empty' => false
 		) );
-}
+} /*
 
 /**
  * Front page main format
@@ -25,7 +25,7 @@ function check_for_children( $cat_in ) {
  */
 function reactor_post_frontpage_format() {
 
-	$categories_list = '';
+	/* $categories_list = '';
 	$categories_link = '';
 	$categories = get_the_category();
 	end($categories);
@@ -34,7 +34,19 @@ function reactor_post_frontpage_format() {
 			$categories_list = $category->name;
 			$categories_link = get_category_link( $category->term_id );
 		}
-	}
+	} */
+
+	$categories_list = '';
+	$categories_link = '';
+	$categories = get_the_category($post->ID);
+	foreach($categories as $category) :
+		$children = get_categories( array ('parent' => $category->term_id ));
+		$has_children = count($children);
+		if ( $has_children == 0 ) {
+		 	$categories_list = $category->name;
+			$categories_link = get_category_link( $category->term_id );
+		}
+	endforeach;
 
 	if ( has_post_thumbnail() ) {
 		$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
@@ -67,7 +79,7 @@ add_action('reactor_post_portpage', 'reactor_post_frontpage_format', 1);
  */
 function reactor_post_catpage_format() {
 
-	$categories_list = '';
+	/* $categories_list = '';
 	$categories_link = '';
 	$categories = get_the_category();
 	end($categories);
@@ -76,7 +88,19 @@ function reactor_post_catpage_format() {
 			$categories_list = $category->name;
 			$categories_link = get_category_link( $category->term_id );
 		}
-	}
+	} */
+
+	$categories_list = '';
+	$categories_link = '';
+	$categories = get_the_category($post->ID);
+	foreach($categories as $category) :
+		$children = get_categories( array ('parent' => $category->term_id ));
+		$has_children = count($children);
+		if ( $has_children == 0 ) {
+		 	$categories_list = $category->name;
+			$categories_link = get_category_link( $category->term_id );
+		}
+	endforeach;
 
 	if ( has_post_thumbnail() ) {
 		$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
@@ -122,7 +146,7 @@ function reactor_do_standard_format_sticky() {
  */
 function reactor_do_standard_header_titles() {
 
-	$categories_list = '';
+	/* $categories_list = '';
 	$categories_link = '';
 	$categories = get_the_category();
 	end($categories);
@@ -131,7 +155,19 @@ function reactor_do_standard_header_titles() {
 			$categories_list = $category->name;
 			$categories_link = get_category_link( $category->term_id );
 		}
-	}
+	} */
+
+	$categories_list = '';
+	$categories_link = '';
+	$categories = get_the_category($post->ID);
+	foreach($categories as $category) :
+		$children = get_categories( array ('parent' => $category->term_id ));
+		$has_children = count($children);
+		if ( $has_children == 0 ) {
+		 	$categories_list = $category->name;
+			$categories_link = get_category_link( $category->term_id );
+		}
+	endforeach;
 
 	$show_titles = reactor_option('frontpage_show_titles', 1);
 	$link_titles = reactor_option('frontpage_link_titles', 0);
