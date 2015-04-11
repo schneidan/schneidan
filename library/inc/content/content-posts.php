@@ -10,6 +10,13 @@
  * @license GNU General Public License v2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  */
 
+function check_for_children( $cat_in ) {
+	return get_terms( $cat_in->taxonomy, array(
+		'parent' => $cat_in->term_id,
+		'hide_empty' => false
+		) );
+}
+
 /**
  * Front page main format
  * in format-standard
@@ -23,7 +30,7 @@ function reactor_post_frontpage_format() {
 	$categories = get_the_category();
 	end($categories);
 	foreach($categories as $category) {
-		if ( strtolower($category->slug) != 'uncategorized' && $category->category_parent == 0) {
+		if ( strtolower($category->slug) != 'uncategorized' && ( $category->category_parent == 0 || !check_for_children( $category ) ) ) {
 			$categories_list = $category->name;
 			$categories_link = get_category_link( $category->term_id );
 		}
@@ -65,7 +72,7 @@ function reactor_post_catpage_format() {
 	$categories = get_the_category();
 	end($categories);
 	foreach($categories as $category) {
-		if ( strtolower($category->slug) != 'uncategorized' && $category->category_parent == 0) {
+		if ( strtolower($category->slug) != 'uncategorized' && ( $category->category_parent == 0 || !check_for_children( $category ) ) ) {
 			$categories_list = $category->name;
 			$categories_link = get_category_link( $category->term_id );
 		}
@@ -120,7 +127,7 @@ function reactor_do_standard_header_titles() {
 	$categories = get_the_category();
 	end($categories);
 	foreach($categories as $category) {
-		if ( strtolower($category->slug) != 'uncategorized' && $category->category_parent == 0) {
+		if ( strtolower($category->slug) != 'uncategorized' && ( $category->category_parent == 0 || !check_for_children( $category ) ) ) {
 			$categories_list = $category->name;
 			$categories_link = get_category_link( $category->term_id );
 		}
