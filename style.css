@@ -317,6 +317,11 @@ footer.site-footer {
 .post-after .post-body-social {
     margin: 3em 0 1.5em;
 }
+
+#snippet-box,
+#snippet-box .snippet-title {
+    width:100%;
+}
 /* top-bar styles */
 
 .top-bar,
