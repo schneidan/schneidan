@@ -37,7 +37,7 @@ $twitter_thumb = ( ($twitter_thumbs != '') ? $twitter_thumbs[0] : get_stylesheet
 ?>
 <link rel="publisher" href="http://plus.google.com/111763340133522077402" />
 
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="<?php echo ( is_single() ) ? 'summary_large_image' : 'summary'; ?>" />
 <meta name="twitter:url" content="<?php echo $twitter_url; ?>" />
 <meta name="twitter:title" content="<?php echo $twitter_title; ?>" />
 <meta name="twitter:description" content="<?php echo $twitter_desc; ?>" />
