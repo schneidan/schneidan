@@ -376,7 +376,11 @@ class follow_me_widget extends WP_Widget
 function registerfollow_me_widget() { register_widget('follow_me_widget'); }
 add_action( 'widgets_init', 'registerfollow_me_widget' );
 
-add_filter( 'jetpack_enable_open_graph', '__return_false' );
+// Disable both Twitter Cards and OG tags
+add_filter( 'jetpack_enable_open_graph', '__return_false', 99 );
+
+// Disable only the Twitter Cards
+add_filter( 'jetpack_disable_twitter_cards', '__return_true', 99 );
 
 /**
  * Widget Custom Classes
