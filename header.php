@@ -24,7 +24,7 @@ function convert_smart_quotes($string)  {
 $twitter_thumbs = '';
 $ogtype = 'blog';
 $twitter_desc = ( is_front_page() ) ? get_bloginfo('description') : '';
-$twitter_desc = ( is_category() ) ? category_desciption() : '';
+$twitter_desc = ( is_category() ) ? category_description() : '';
 $twitter_desc = ( is_tag() ) ? tag_description() : '';
 if ( is_singular() && ! is_front_page() ) {
     $twitter_thumbs = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
