@@ -134,7 +134,7 @@ function reactor_typography_google_fonts(){
         }
     }
 }
-add_action('wp_enqueue_scripts', 'reactor_typography_google_fonts');
+//add_action('wp_enqueue_scripts', 'reactor_typography_google_fonts');
 
 /**
  * Enqueues the Google $font that is passed
