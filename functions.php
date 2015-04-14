@@ -382,6 +382,16 @@ add_filter( 'jetpack_enable_open_graph', '__return_false', 99 );
 // Disable only the Twitter Cards
 add_filter( 'jetpack_disable_twitter_cards', '__return_true', 99 );
 
+// Leave this here so we can use it other places...
+function convert_smart_quotes($string)  { 
+    $search = array('&lsquo;','&rsquo;','&ldquo;','&rdquo;');
+    $replace = array('&#039;','&#039;','&#034;','&#034;');
+    return str_replace($search, $replace, $string); 
+}
+
+// Remove category description paragraph tags
+remove_filter('term_description','wpautop');
+
 /**
  * Widget Custom Classes
  */
