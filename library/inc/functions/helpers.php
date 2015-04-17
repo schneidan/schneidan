@@ -268,7 +268,7 @@ function reactor_wp_title( $title, $sep ) {
 	// Add the site description for the home/front page.
 	$site_description = get_bloginfo('description', 'display');
 	if ( $site_description && ( is_home() || is_front_page() || is_page_template('page-templates/front-page.php') ) )
-		$title = get_bloginfo('name') . " $sep $site_description";
+		$title = $site_description;
 
 	// Add a page number if necessary.
 	if ( $paged >= 2 || $page >= 2 )
