@@ -26,14 +26,14 @@
                     </header><!-- .archive-header -->
                 <?php endif; // end have_posts() check ?> 
 
-                <?php if ( is_category( 'cameras') && get_query_var( 'paged' ) == 1 ) : ?>
+                <?php if ( is_category( 'cameras') && ! get_query_var( 'paged' ) ) : ?>
                     <div class="category-sidebars">
                         <?php get_sidebar('cameras'); ?>
                     </div>
                     <h2 class="category-side">All posts in Cameras:</h2>
                 <?php endif; // end cameras sidebar ?> 
 
-                <?php if ( is_category( 'stories') && get_query_var( 'paged' ) == 1 ) : ?>
+                <?php if ( is_category( 'stories') && ! get_query_var( 'paged' ) ) : ?>
                     <div class="category-sidebars">
                         <?php get_sidebar('stories'); ?>
                     </div>
