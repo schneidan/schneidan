@@ -323,7 +323,13 @@ footer.site-footer {
 
 #snippet-box,
 #snippet-box .snippet-title {
-    width:100%;
+    width:100%!important;
+}
+#snippet-box .snippet-label {
+    width:30%!important;
+}
+#snippet-box .snippet-markup {
+    padding:.65em 0;
 }
 /* top-bar styles */
 
@@ -623,6 +629,7 @@ body.archive .entry-body {
 #main ul.pagination li {
     font-size: 1.2em;
     text-transform: uppercase;
+    margin-bottom:2em;
 }
 
 #main ul.pagination li a {
