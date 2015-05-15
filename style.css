@@ -262,10 +262,10 @@ p#wp-email-button {
     margin-bottom: .5em;
 }
 
-.jetpack_subscription_widget #subscribe-text {
-    display: none;
+.jetpack_subscription_widget #subscribe-text,
+.jetpack_subscription_widget form p:nth-child(2) {
+    display:none;
 }
-
 .jetpack_subscription_widget p#subscribe-email {
     float: left;
     display: inline-block;
