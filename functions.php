@@ -425,3 +425,32 @@ function sd_dynamic_sidebar_params( $params ) {
     return $params;
 }
 add_filter( 'dynamic_sidebar_params', 'sd_dynamic_sidebar_params' );
+
+/**
+ * dequeue Gallery Slideshow scripts when not necessary
+ */
+function sd_dequeue_scripts() {
+
+    $load_scripts = false;
+
+    if( is_singular() ) {
+        $post = get_post();
+
+        if( has_shortcode($post->post_content, 'gss') ) {
+            $load_scripts = true;
+        }
+
+    }
+
+    if( ! $load_scripts ) {
+        wp_dequeue_script( 'cycle2' );
+        wp_dequeue_script( 'cycle2_center' );
+        wp_dequeue_script( 'cycle2_carousel' );
+        wp_dequeue_script( 'gss_js' );
+        wp_dequeue_script( 'gss_custom_js' );
+        wp_dequeue_style( 'gss_css' );
+    }
+
+}
+
+add_action( 'wp_enqueue_scripts', 'sd_dequeue_scripts', 99 );  
