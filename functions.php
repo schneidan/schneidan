@@ -459,6 +459,20 @@ add_action( 'wp_enqueue_scripts', 'sd_dequeue_scripts', 99 );
 wp_dequeue_style( 'wp-email' );
 
 /**
+ * Remove jquery migrate and move jquery to footer
+ */
+add_filter( 'wp_default_scripts', 'remove_jquery_migrate' );
+
+function remove_jquery_migrate( &$scripts)
+{
+    if(!is_admin())
+    {
+        $scripts->remove( 'jquery');
+        $scripts->add( 'jquery', false, array( 'jquery-core' ), '1.10.2' );
+    }
+}
+
+/**
  * deregister unused Jetpack CSS
  */
 function jeherve_remove_all_jp_css() {
