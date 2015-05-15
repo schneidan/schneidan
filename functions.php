@@ -455,6 +455,9 @@ function sd_dequeue_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'sd_dequeue_scripts', 99 );
 
+// Dequeue WP-email styles because they are dumb
+wp_dequeue_style( 'wp-email' );
+
 /**
  * deregister unused Jetpack CSS
  */
