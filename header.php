@@ -18,8 +18,6 @@
 <!-- end WordPress head -->
 <?php reactor_head(); ?>
 
-<link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic|Oswald:900|Voltaire:400|Open+Sans:400,300' rel='stylesheet' type='text/css'>
-
 </head>
 
 <body <?php body_class(); ?>>
