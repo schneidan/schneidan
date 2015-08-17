@@ -473,6 +473,12 @@ function remove_jquery_migrate( &$scripts)
 }
 
 /**
+ * deregister stupid wP emoji BS
+ */
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+/**
  * deregister unused Jetpack CSS
  */
 function jeherve_remove_all_jp_css() {
