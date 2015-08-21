@@ -30,6 +30,17 @@ function reactor_do_reactor_head() { ?>
 
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,100,200,300,600,700,800,900' rel='stylesheet' type='text/css'>
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() . '/favicon.ico'; ?>">
+
+<link rel="apple-touch-icon-precomposed" href="<?php echo get_stylesheet_directory_uri(); ?>/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_stylesheet_directory_uri(); ?>/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="<?php echo get_stylesheet_directory_uri(); ?>/apple-touch-icon-76x76-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_stylesheet_directory_uri(); ?>/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php echo get_stylesheet_directory_uri(); ?>/apple-touch-icon-120x120-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo get_stylesheet_directory_uri(); ?>/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?php echo get_stylesheet_directory_uri(); ?>/apple-touch-icon-152x152-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="<?php echo get_stylesheet_directory_uri(); ?>/apple-touch-icon-180x180-precomposed.png">
+<link rel="icon" sizes="192x192" href="<?php echo get_stylesheet_directory_uri(); ?>/touch-icon-192x192.png">
+
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 <?php
 
