@@ -60,6 +60,7 @@ if ( is_home() || is_front_page() ) {
 $twitter_thumb = ( ($twitter_thumbs != '') ? $twitter_thumbs[0] : get_stylesheet_directory_uri() . '/images/schneidan-D-logo-fb.png' );
 ?>
 <link rel="publisher" href="http://plus.google.com/111763340133522077402" />
+<meta name="msvalidate.01" content="F310CCF1937DA5179BC12525FD93BA4B" />
 
 <meta name="twitter:card" content="<?php echo ( is_singular() ) ? 'summary_large_image' : 'summary'; ?>" />
 <meta name="twitter:url" content="<?php echo $twitter_url; ?>" />
@@ -83,7 +84,6 @@ $twitter_thumb = ( ($twitter_thumbs != '') ? $twitter_thumbs[0] : get_stylesheet
 <meta name="robots" content="follow, all" />
 <meta name="language" content="en, sv" />
 <meta name="Copyright" content="Copyright &copy; Daniel J. Schneider." />
-<meta name="description" content="<?php echo $twitter_desc; ?>" />
 <meta name="keywords" content="<?php
 if (has_tag() ) {
     $posttags = get_the_tags();
