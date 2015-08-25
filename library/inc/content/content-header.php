@@ -22,8 +22,8 @@ function reactor_do_reactor_head() { ?>
 
 <!-- google chrome frame for ie -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<!-- stop browserconfig.xml requests -->
-<meta name="msapplication-config" content="none"/>
+<!-- ms:application for Win8 tiles -->
+<meta name="application-name" content="Daniel J. Schneider Photography"/>
 
 <!-- mobile meta -->
 <meta name="HandheldFriendly" content="True">
