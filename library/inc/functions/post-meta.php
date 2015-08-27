@@ -68,18 +68,18 @@ if ( !function_exists('reactor_post_meta') ) {
 		}
 	
 		$posted_on = ( $args['date_only'] ) ? 'Posted: ' : '';
-		$raw_date = ( $args['link_date'] ) ? $posted_on . '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>' : $posted_on . '<time class="entry-date" datetime="%3$s">%4$s</time>';
+		$raw_date = ( $args['link_date'] ) ? $posted_on . '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s"><abbr class="published" title="%5$s">%4$s</abbr></time></a>' : $posted_on . '<time class="entry-date" datetime="%3$s"><abbr class="published" title="%5$s">%4$s</abbr></time>';
 		$date = sprintf( $raw_date,
 			esc_url( get_month_link( get_the_time('Y'), get_the_time('m') ) ),
 			esc_attr( sprintf( __('View all posts from %s %s', 'reactor'), get_the_time('M'), get_the_time('Y') ) ),
 			esc_attr( get_the_date('c') ),
-			esc_html( get_the_date() )
-		 );
-	
-		$authorraw = 'By %1$s';
-		$author = sprintf($authorraw,
-			get_the_author()
-		 );
+			esc_html( get_the_date() ),
+			get_the_date('Y-m-d\TH:i:s\Z')
+		);
+
+		
+
+		$author = get_the_author();
 
 		$num_comments = get_comments_number(); // get_comments_number returns only a numeric value
 		if ( $num_comments == 0 ) {
@@ -100,7 +100,7 @@ if ( !function_exists('reactor_post_meta') ) {
 		 */
 		if ( $date || $categories_list || $author || $tag_list ) {
 			if ( $args['catpage'] ) {
-				$meta .= ( $author && $args['show_author'] ) ? '<span class="by-author">%4$s</span> ' : '';
+				$meta .= ( $author && $args['show_author'] ) ? '<span class="vcard author by-author">By <span class="fn">%4$s</span></span> ' : '';
 				$meta .= ( $date && $args['show_date'] ) ? '<span class="posted-time">%3$s</span>' : '';
 				$meta .= ( $comments && $args['comments'] ) ? '%5$s ' : '';
 				$meta .= ( $categories_list && $args['show_cat'] ) ? __('in', 'reactor') . ' %1$s' : '';
@@ -110,7 +110,7 @@ if ( !function_exists('reactor_post_meta') ) {
 					$output = '<div class="entry-meta">' . $meta . '</div>';
 				}
 			} else if ( $args['show_icons'] ) {
-				$meta .= ( $author && $args['show_author'] ) ? '<i class="social foundicon-torso" title="Written by"></i> <span class="by-author">%4$s</span>' : '';
+				$meta .= ( $author && $args['show_author'] ) ? '<i class="social foundicon-torso" title="Written by"></i> <span class="vcard author by-author">By <span class="fn">%4$s</span></span>' : '';
 				$meta .= ( $date && $args['show_date'] ) ? '<i class="general foundicon-calendar" title="Publish on"></i> %3$s' : '';
 				$meta .= ( $categories_list && $args['show_cat'] ) ? '<i class="general foundicon-folder" title="Posted in"></i> %1$s' : '';
 				$meta .= ( $tag_list && $args['show_tag'] ) ? '<div class="entry-tags"><i class="general foundicon-flag" title="Tagged with"></i> %2$s</div>' : '';
