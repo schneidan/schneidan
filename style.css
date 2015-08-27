@@ -562,6 +562,10 @@ body.archive .entry-body {
     padding:0;
     border:none;
 }
+.vcard .fn {
+    font-size:100%;
+    font-weight: bold;
+}
 time abbr {
     color:#f5f5f5;
     font-size:100%;
