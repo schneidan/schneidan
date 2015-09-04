@@ -94,7 +94,7 @@ $twitter_thumb = ( ($twitter_thumbs != '') ? $twitter_thumbs[0] : get_stylesheet
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="distribution" content="global" />
-<meta name="robots" content="follow, all" />
+<meta name="robots" content="index,follow" />
 <meta name="language" content="en, sv" />
 <meta name="Copyright" content="Copyright &copy; Daniel J. Schneider." />
 <meta name="keywords" content="<?php
