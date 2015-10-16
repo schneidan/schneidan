@@ -964,6 +964,7 @@ div.inline-cube-ad {
     body.single .wp-caption.figure-full {
         max-width: 100%;
         padding: 0;
+        margin-left:0;
     }
     body.page .wp-caption.figure-medium,
     body.single .wp-caption.figure-medium {
