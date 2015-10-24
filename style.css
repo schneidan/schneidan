@@ -45,7 +45,7 @@ h2 {
     font-size: 1.6em;
     text-transform: uppercase;
 }
-h3, dt {
+h3 {
     font-size: 1.25em;
 }
 body {
@@ -58,6 +58,12 @@ dd, {
     font-family: 'Raleway', Helvetica, Arial, sans-serif!important;
     font-size: 1.05em;
     line-height: 1.6;
+}
+dt {
+    font-size:1.33em;
+}
+dd {
+    margin-bottom:1.25rem;
 }
 iframe {
     border:none;
