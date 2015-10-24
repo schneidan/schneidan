@@ -35,7 +35,7 @@ h3,
 h4,
 h5,
 h6,
-dt {
+dl dt {
     font-family: 'Raleway', Helvetica, Arial, sans-serif!important;
     color: #ddd;
     font-weight: 700;
@@ -54,15 +54,15 @@ body {
 }
 body,
 p,
-dd, {
+dl dd {
     font-family: 'Raleway', Helvetica, Arial, sans-serif!important;
     font-size: 1.05em;
     line-height: 1.6;
 }
-dt {
+dl dt {
     font-size:1.33em;
 }
-dd {
+dl dd {
     margin-bottom:1.25rem;
 }
 iframe {
