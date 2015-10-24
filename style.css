@@ -61,9 +61,7 @@ dl dd {
 }
 dl dt {
     font-size:1.33em;
-}
-dl dd {
-    margin-bottom:1.25rem;
+    margin-top:1.2em;
 }
 iframe {
     border:none;
