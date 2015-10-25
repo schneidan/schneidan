@@ -104,9 +104,13 @@ h2.category-side {
 }
 body #slb_viewer_wrap .slb_theme_slb_baseline .slb_viewer_layout {
     z-index:100056000;
+    -webkit-transform: translate3d(0,0,2px);
+    transform: translate3d(0,0,2px);
 }
 body #slb_viewer_wrap .slb_theme_slb_baseline .slb_viewer_overlay {
     z-index:1000560;
+    -webkit-transform: translate3d(0,0,1px);
+    transform: translate3d(0,0,1px);
 }
 .gallery ul.clearing-thumbs br {
     display:none;
