@@ -18,15 +18,7 @@ body.page #content li a[href^="https://"]:not([href*="schneidan.com"]):after,
 body.single #content p a[href^="http://"]:not([href*="schneidan.com"]):after,
 body.single #content p a[href^="https://"]:not([href*="schneidan.com"]):after,
 body.page #content p a[href^="http://"]:not([href*="schneidan.com"]):after,
-body.page #content p a[href^="https://"]:not([href*="schneidan.com"]):after,
-body.single #content li a[href^="http://"]:not([href*="twitter.com"]):after,
-body.single #content li a[href^="https://"]:not([href*="twitter.com"]):after,
-body.page #content li a[href^="http://"]:not([href*="twitter.com"]):after,
-body.page #content li a[href^="https://"]:not([href*="twitter.com"]):after,
-body.single #content p a[href^="http://"]:not([href*="twitter.com"]):after,
-body.single #content p a[href^="https://"]:not([href*="twitter.com"]):after,
-body.page #content p a[href^="http://"]:not([href*="twitter.com"]):after,
-body.page #content p a[href^="https://"]:not([href*="twitter.com"]):after {
+body.page #content p a[href^="https://"]:not([href*="schneidan.com"]):after {
     content: "";
     background-image:url('./images/external-icon.png');
     background-position: center center;
