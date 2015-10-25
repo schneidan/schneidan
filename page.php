@@ -16,7 +16,7 @@
         	<div class="row">
                 <?php reactor_content_before(); ?>
 
-                <div class="<?php reactor_columns(7,12,9); ?> large-centered medium-centered">
+                <div class="<?php reactor_columns( array( 7, 12, 9 ) ); ?> large-push-2 medium-push-1">
                 
                 <?php reactor_inner_content_before(); ?>
                  
