@@ -102,8 +102,11 @@ div.top-bar-container {
 h2.category-side {
     margin:4em 0 1em;
 }
-body #slb_viewer_wrap .slb_theme_slb_baseline {
+body #slb_viewer_wrap .slb_theme_slb_baseline .slb_viewer_layout {
     z-index:100056000;
+}
+body #slb_viewer_wrap .slb_theme_slb_baseline .slb_viewer_overlay {
+    z-index:1000560;
 }
 .gallery ul.clearing-thumbs br {
     display:none;
