@@ -510,3 +510,11 @@ if ( ! is_admin() ) {
     add_filter( 'jetpack_implode_frontend_css', '__return_false' );
     add_action('wp_print_styles', 'jeherve_remove_all_jp_css' );
 }
+
+// Attempts to exclude the frontpage post fro flexible-post-widget's query
+function exclude_flexible_posts($query_args) {
+    global $frontpage_post_id;
+    $query_args['post__not_in'] = array($frontpage_post_id);
+    return $query_args;
+}
+add_filter('dpe_fpw_args', 'exclude_flexible_posts');

@@ -14,7 +14,7 @@ if ( -1 == $post_category ) { $post_category = ''; } // fix customizer -1
 $number_posts = reactor_option('frontpage_number_posts', 1);
 $post_columns = reactor_option('frontpage_post_columns', 3);
 $page_links = 0;
- $args = array( 
+$args = array(
 	'post_type'           => 'post',
 	'cat'                 => $post_category,
 	'posts_per_page'      => $number_posts
@@ -28,7 +28,7 @@ $frontpage_query = new WP_Query( $args ); ?>
 	<?php reactor_loop_before(); ?>
 	    
 	    <?php $runonce = false; 
-	    while ( $frontpage_query->have_posts() && $runonce == false ) : $frontpage_query->the_post(); global $more; $more = 0; ?>
+	    while ( $frontpage_query->have_posts() && $runonce == false ) : $frontpage_query->the_post(); global $more; $more = 0;global $frontpage_post_id; $frontpage_post_id = get_the_id(); ?>
 	    	
 	        <?php reactor_post_before(); ?>
 	            
