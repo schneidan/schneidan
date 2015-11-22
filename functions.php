@@ -511,6 +511,12 @@ if ( ! is_admin() ) {
     add_action('wp_print_styles', 'jeherve_remove_all_jp_css' );
 }
 
+/**
+ * Hide all admin notices from Yoast SEO plugin
+ */
+remove_action( 'admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
+remove_action( 'all_admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
+
 // Attempts to exclude the frontpage post fro flexible-post-widget's query
 function exclude_flexible_posts($query_args) {
     global $frontpage_post_id;

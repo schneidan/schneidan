@@ -28,6 +28,16 @@ body.page #content p a[href^="https://"]:not([href*="schneidan.com"]):after {
     width:.65em;
     display:inline-block;
 }
+body.single #content li a.noext:after,
+body.page #content li a.noext:after,
+body.single #content p a.noext:after,
+body.page #content p a.noext:after {
+    content:"";
+    background-image: none!important;
+    margin:0;
+    height:0;
+    width:0;
+}
 /* site-wide styles */
 h1,
 h2,
