@@ -143,7 +143,7 @@ function featured_image_in_rss($content)
     // Check if the post has a featured image
     if (has_post_thumbnail($post->ID))
     {
-        $content = get_the_post_thumbnail($post->ID, 'full', array('style' => 'margin-bottom:10px;')) . $content;
+        $content = get_the_post_thumbnail($post->ID, 'large', array('style' => 'margin-bottom:10px;')) . $content;
     }
     return $content;
 }

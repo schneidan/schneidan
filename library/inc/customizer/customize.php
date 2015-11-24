@@ -826,6 +826,18 @@ if ( !function_exists('reactor_customize_register') ) {
 					'section'  => 'reactor_customizer_login',
 					'type'     => 'text',
 				 ) );
+
+			$wp_customize->add_setting('reactor_options[login_message]', array( 
+				'default'        => '',
+				'type'           => 'option',
+				'capability'     => 'manage_options',
+				'theme_supports' => 'reactor-custom-login',
+			 ) );
+				$wp_customize->add_control('reactor_options[login_message]', array( 
+					'label'    => __('Logo Message', 'reactor'),
+					'section'  => 'reactor_customizer_login',
+					'type'     => 'text',
+				 ) );
 				 
 		
 		$templates = get_theme_support('reactor-page-templates');
