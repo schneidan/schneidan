@@ -202,6 +202,16 @@ function reactor_post_catpage() {
 }
 
 /**
+ * Register hook: reactor_post_catgrid
+ *
+ * 
+ * @since 1.0.0
+ */
+function reactor_post_catgrid() {
+	do_action('reactor_post_catgrid');
+}
+
+/**
  * Register hook: reactor_post_social
  *
  * 

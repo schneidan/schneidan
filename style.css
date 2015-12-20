@@ -525,11 +525,6 @@ body.page-template-port-page footer#footer {
     margin: .5em 0;
     text-transform: uppercase;
 }
-.single h2.entry-subtitle {
-    font-size: 1.35em;
-    margin: 0 0 .5em;
-    text-transform:none;
-}
 /* tag and category images */
 body.page h1.entry-title {
     font-size: 2em;

@@ -6,14 +6,20 @@
  * @subpackge Templates
  * @since 1.0.0
  */
+
+if ( usp_is_public_submission() ) {
+    $category = get_the_category();
+    $category_id = $category[0]->cat_ID;
+    $relocate = get_category_link($category_id);
+    header('location: '.$relocate);
+}
+        
 ?>
 
 <?php get_header(); ?>
 
 	<div id="primary" class="site-content">
-    
-    	
-    
+
         <div id="content" role="main">
         	<div class="row">
 
