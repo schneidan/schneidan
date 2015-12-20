@@ -34,7 +34,7 @@ if ( get_query_var('paged') ) {
 
         <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
-            <ul class="large-block-grid-4 medium-block-grid-3 sall-block-grid-2">
+            <ul class="large-block-grid-4 medium-block-grid-3 small-block-grid-2">
 
             <?php get_template_part('post-formats/format', 'catgrid'); ?>
 

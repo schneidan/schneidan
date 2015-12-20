@@ -102,25 +102,18 @@ add_action('reactor_post_tagpage', 'reactor_post_catpage_format', 1);
  */
 function reactor_post_catgrid_format() {
 
-	if ( has_post_thumbnail() ) {
-		$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
-	}
-	if (isset($large_image_url) && strlen($large_image_url[0]) >= 1) { ?>
-		<li>
-			<div class="catpage-post clearfix">
-				<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
-					<div class="cat-thumbnail" style="background-image:url('<?php echo $large_image_url[0]; ?>');">
-						<div class="cat-imgholder"></div>
-					</div>
-				</a>
-	<?php } else { ?>
-		<li>
-			<div class="catpage-post">
-	<?php } ?>
-		<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-	<?php reactor_post_meta(array('show_author'=>true,'show_cat'=>false,'show_tag'=>false,'comments'=>false,'catpage'=>true,'link_date'=>false,'date_only'=>true)); ?>
-		</div>
-	</li>
+	if ( function_exists('usp_get_post_images') ) {
+		$images = usp_get_post_images();
+	} ?>
+	<div class="catgrid-post clearfix">
+		<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
+			<div class="catgrid-thumbnail" style="background-image:url('<?php echo $images[0]; ?>');">
+				<div class="cat-imgholder"></div>
+			</div>
+		</a>
+	<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+	<?php reactor_post_meta(array('show_author'=>true,'show_cat'=>false,'show_tag'=>false,'comments'=>false,'catpage'=>true,'link_date'=>false,'date_only'=>false,'show_by'=>false)); ?>
+	</div>
 <?php }
 add_action('reactor_post_catgrid', 'reactor_post_catgrid_format', 1);
 

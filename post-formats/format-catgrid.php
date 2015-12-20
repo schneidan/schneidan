@@ -7,11 +7,12 @@
  * @since 1.0.0
  */
 ?>
+	<li>
+	    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	        <div class="entry-body">
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <div class="entry-body">
-
-            <?php reactor_post_catpage(); ?>
-             
-        </div><!-- .entry-body -->
-    </article><!-- #post -->
+	            <?php reactor_post_catgrid(); ?>
+	             
+	        </div><!-- .entry-body -->
+	    </article><!-- #post -->
+   </li>

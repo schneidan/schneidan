@@ -32,6 +32,7 @@ if ( !function_exists('reactor_post_meta') ) {
 			'comments' => false,
 			'catpage' => false,
 			'date_only' => false,
+			'show_by'	=> true,
 		 );
         $args = wp_parse_args( $args, $defaults );
 		
@@ -80,6 +81,12 @@ if ( !function_exists('reactor_post_meta') ) {
 		
 
 		$author = get_the_author();
+		if ( function_exists('usp_is_public_submission') && usp_is_public_submission() ) {
+			ob_start();
+			if (function_exists('usp_author_link')) usp_author_link();
+			$author = strip_tags(ob_get_contents());
+			ob_end_clean();
+		}
 
 		$num_comments = get_comments_number(); // get_comments_number returns only a numeric value
 		if ( $num_comments == 0 ) {
@@ -100,7 +107,8 @@ if ( !function_exists('reactor_post_meta') ) {
 		 */
 		if ( $date || $categories_list || $author || $tag_list ) {
 			if ( $args['catpage'] ) {
-				$meta .= ( $author && $args['show_author'] ) ? '<span class="vcard author by-author">By <span class="fn">%4$s</span></span> ' : '';
+				$if_by = ( $args['show_by'] ) ? 'By ' : '';
+				$meta .= ( $author && $args['show_author'] ) ? '<span class="vcard author by-author">'.$if_by.'<span class="fn">%4$s</span></span> ' : '';
 				$meta .= ( $date && $args['show_date'] ) ? '<span class="posted-time">%3$s</span>' : '';
 				$meta .= ( $comments && $args['comments'] ) ? '%5$s ' : '';
 				$meta .= ( $categories_list && $args['show_cat'] ) ? __('in', 'reactor') . ' %1$s' : '';
