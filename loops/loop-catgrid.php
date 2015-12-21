@@ -32,15 +32,15 @@ if ( get_query_var('paged') ) {
     
     <?php reactor_loop_before(); ?>
 
-        <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
+        <ul class="large-block-grid-4 medium-block-grid-3 small-block-grid-2">
 
-            <ul class="large-block-grid-4 medium-block-grid-3 small-block-grid-2">
+        <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
             <?php get_template_part('post-formats/format', 'catgrid'); ?>
 
-            </ul>
-
         <?php endwhile; // end of the post loop ?>
+
+        </ul>
 
 	<?php endif; ?>
         

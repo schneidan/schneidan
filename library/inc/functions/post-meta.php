@@ -33,6 +33,7 @@ if ( !function_exists('reactor_post_meta') ) {
 			'catpage' => false,
 			'date_only' => false,
 			'show_by'	=> true,
+			'year_only' => false,
 		 );
         $args = wp_parse_args( $args, $defaults );
 		
@@ -73,9 +74,9 @@ if ( !function_exists('reactor_post_meta') ) {
 		$date = sprintf( $raw_date,
 			esc_url( get_month_link( get_the_time('Y'), get_the_time('m') ) ),
 			esc_attr( sprintf( __('View all posts from %s %s', 'reactor'), get_the_time('M'), get_the_time('Y') ) ),
-			esc_attr( get_the_date('c') ),
-			esc_html( get_the_date() ),
-			get_the_date('Y-m-d\TH:i:s\Z')
+			esc_attr( ( $args['year_only'] ) ? get_the_date('Y') : get_the_date('c') ),
+			esc_html( ( $args['year_only'] ) ? get_the_date('Y') : get_the_date() ),
+			( $args['year_only'] ) ? get_the_date('Y') : get_the_date('Y-m-d\TH:i:s\Z')
 		);
 
 		

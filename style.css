@@ -140,7 +140,6 @@ body #slb_viewer_wrap .slb_theme_slb_baseline .slb_viewer_overlay {
     background-color:#222;
 }
 /* forms and stuff */
-
 .button,
 button,
 .Button {
@@ -246,8 +245,44 @@ p#wp-email-button {
     width: 0;
     overflow: hidden;
 }
-/* footer */
+/* user-submitted posts form */
+.usp-errors .usp-errors-heading {
+    font-size:120%;
+    margin-bottom:.15em;
+    color:rgba(235,17,17,1.0);
+}
+.usp-errors .usp-error {
+    color:rgba(235,17,17,1.0);
+}
+.usp-success {
+    font-size:120%;
+    color:rgba(17,235,17,1.0);
+}
+form.usp-form {
+    margin:2em 0;
+}
+form.usp-form fieldset {
+    border:none;
+    margin:.75em 0;
+}
+form.usp-form fieldset label.usp-label {
+    font-size:1.15em;
+    padding-bottom:.2em;
+}
+form.usp-form input,
+form.usp-form textarea {
+    color:rgba(0,0,0,0.95);
+    background-color:rgba(255,255,255,0.9);
+    padding:.35em;
+    font-size:1em;
+    font-family: 'Raleway', Helvetica, Arial, sans-serif!important;
+}
+form.usp-form input[type="file"] {
+    color:rgba(255,255,255,0.9);
+    background:none;
+}
 
+/* footer */
 .inner-footer {
     border-top: none;
 }
@@ -590,16 +625,15 @@ body.archive .entry-body {
     font-size:100%;
     font-weight: bold;
 }
-.catgrid-post .vcard .fn {
-    font-size:100%;
-    font-weight: normal;
-}
 time abbr {
     color:#f5f5f5;
     font-size:100%;
     cursor:default;
     border-bottom:none;
     text-transform: uppercase;
+}
+.catgrid-post time abbr {
+    text-transform: none;
 }
 time abbr[title] {
     border-bottom: none;
@@ -650,6 +684,12 @@ header.archive-header h1.category-places {
 header.archive-header h1.category-events {
     background: rgba(204, 162, 51, .8);
 }
+.category-stories .frontpage-post h3.entry-category,
+.single .category-stories h3.entry-category,
+.dpe-flexible-posts .category-stories h5,
+header.archive-header h1.category-stories {
+    background: rgba(153, 101, 21, .8);
+}
 .category-in-my-bag .frontpage-post h3.entry-category,
 .single .category-in-my-bag h3.entry-category,
 .dpe-flexible-posts .category-in-my-bag h5,
@@ -685,6 +725,12 @@ header.archive-header h1.category-resources {
 .dpe-flexible-posts .category-digital h5,
 header.archive-header h1.category-digital {
     background: rgba(129, 95, 34, 0.9);
+}
+.category-expired-film-day .frontpage-post h3.entry-category,
+.single .category-expired-film-day h3.entry-category,
+.dpe-flexible-posts .category-expired-film-day h5,
+header.archive-header h1.category-expired-film-day {
+    background: rgba(85, 107, 47, .8);
 }
 /* single article page */
 .posted-time {
