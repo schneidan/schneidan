@@ -579,6 +579,9 @@ body.search .page-header h1.page-title span.searchresults,
 body.archive .entry-body {
     margin-bottom: 2.5em;
 }
+body.archive .catgrid-post .entry-body {
+    margin-bottom: 1em;
+}
 .catpage-post h2 {
     margin-top: 0;
     font-size: 1.4em;
@@ -610,6 +613,10 @@ body.archive .entry-body {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;    
+}
+.catgrid-post h2.entry-title {
+    font-size: 1.25em;
+    padding-top:.2em;
 }
 .cat-imgholder {
     width: 100%;
