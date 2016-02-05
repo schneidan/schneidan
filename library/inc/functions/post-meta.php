@@ -82,9 +82,9 @@ if ( !function_exists('reactor_post_meta') ) {
 		
 
 		$author = get_the_author();
-		if ( function_exists('usp_is_public_submission') && usp_is_public_submission() ) {
-			break;
-			$author = get_post_meta($post->ID, 'user_submit_name', true);
+		$usp_author = get_post_meta($post->ID, 'usp-author', true);
+		if ( $usp_author != '' ) {
+			$author = $usp_author;
 		}
 
 		$num_comments = get_comments_number(); // get_comments_number returns only a numeric value
