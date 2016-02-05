@@ -24,6 +24,14 @@
                 <div class="post-before hide-for-small">
                     <?php reactor_post_social(); ?>
                 </div>
+                <?php if (in_category(161)):
+                    if ( has_post_thumbnail() ) {
+                        $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
+                    } ?>
+                    <div class="catgrid-thumbnail" style="background-image:url('<?php echo $large_image_url[0]; ?>');">
+                            <div class="cat-imgholder"></div>
+                    </div>
+                <?php endif; ?>
                 <?php the_content(); ?>
                 <?php wp_link_pages( array('before' => '<div class="page-links">' . __('Pages:', 'reactor'), 'after' => '</div>') ); ?>
                 <div class="post-after">
