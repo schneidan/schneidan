@@ -31,6 +31,13 @@
                     <div class="catgrid-thumbnail" style="background-image:url('<?php echo $large_image_url[0]; ?>');">
                             <div class="cat-imgholder"></div>
                     </div>
+                    <?php $usp_author = get_post_meta($post->ID, 'usp-author', true); if ($usp_author !=''): ?>
+                        <p>Submitted by: <strong><?php echo $usp_author; ?></strong></p>
+                    <?php endif; ?>
+                    <?php $usp_url = get_post_meta($post->ID, 'usp-url', true); if ($usp_url !=''): ?>
+                        <p>Link: <strong><a href="<?php echo $usp_url; ?>"><?php echo $usp_url; ?></a></strong></p>
+                    <?php endif; ?>
+                    <p>About the photo and the film:</p>
                 <?php endif; ?>
                 <?php the_content(); ?>
                 <?php wp_link_pages( array('before' => '<div class="page-links">' . __('Pages:', 'reactor'), 'after' => '</div>') ); ?>
