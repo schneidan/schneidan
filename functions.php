@@ -178,6 +178,18 @@ function my_categories_filter($cat_args){
 
 add_filter('widget_categories_args', 'my_categories_filter', 10, 2);
 
+function sd_exclude_from_rss($query) {
+    // Categories to exclude - by ID
+    $cats_to_exclude = array(161);
+
+    if ($query->is_feed && !$query->is_category($cats_to_exclude) ) {
+        set_query_var('category__not_in', $cats_to_exclude);
+    }
+
+    return $query;
+}
+add_filter('pre_get_posts','sd_exclude_from_rss');
+
 // Add contact methods fields to user profile
 function modify_contact_methods($profile_fields) {
 
