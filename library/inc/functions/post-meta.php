@@ -83,6 +83,7 @@ if ( !function_exists('reactor_post_meta') ) {
 
 		$author = get_the_author();
 		if ( function_exists('usp_is_public_submission') && usp_is_public_submission() ) {
+			break;
 			$author = get_post_meta($post->ID, 'user_submit_name', true);
 		}
 
