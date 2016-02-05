@@ -745,6 +745,8 @@ header.archive-header h1.category-expired-film-day {
 }
 .catgrid-post .posted-time {
     float:none;
+    display:block;
+    clear:both;
 }
 .posted-time time {
     font-weight:bold;
