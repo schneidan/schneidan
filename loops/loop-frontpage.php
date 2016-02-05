@@ -13,7 +13,7 @@ $post_category = reactor_option('frontpage_post_category', '');
 if ( -1 == $post_category ) { $post_category = ''; } // fix customizer -1
 $number_posts = reactor_option('frontpage_number_posts', 1);
 $post_columns = reactor_option('frontpage_post_columns', 3);
-$exclude_cat = array(153);
+$exclude_cat = array(161);
 $page_links = 0;
 $args = array(
 	'post_type'           => 'post',
