@@ -73,7 +73,7 @@ if ( is_home() || is_front_page() ) {
 $twitter_thumb = ( ($twitter_thumbs != '') ? $twitter_thumbs[0] : get_stylesheet_directory_uri() . '/images/schneidan-D-logo-fb.png' );
 ?>
 <link rel="publisher" href="http://plus.google.com/111763340133522077402" />
-<link rel="alternate" href="http://example.com" hreflang="en-us" />
+<link rel="alternate" href="http://schneidan.com" hreflang="en-us" />
 
 <meta name="twitter:card" content="<?php echo ( is_singular() ) ? 'summary_large_image' : 'summary'; ?>" />
 <meta name="twitter:url" content="<?php echo $twitter_url; ?>" />
