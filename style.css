@@ -819,6 +819,9 @@ body.single .catgrid-thumbnail {
     max-width: 120%;
     padding: 0;
 }
+body.single .catgrid-thumbnail img {
+    width:100%;
+}
 body.page .wp-caption.figure-large,
 body.single .wp-caption.figure-large {
     max-width: 100%;
