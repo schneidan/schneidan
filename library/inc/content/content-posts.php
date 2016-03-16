@@ -107,9 +107,15 @@ function reactor_post_catgrid_format() {
 	} ?>
 	<div class="catgrid-post clearfix">
 		<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
-			<div class="catgrid-thumbnail" style="background-image:url('<?php echo $large_image_url[0]; ?>');">
-				<div class="cat-imgholder"></div>
-			</div>
+			<?php if is_single(): ?>
+				<div class="catgrid-thumbnail">
+					<img src="<?php echo $large_image_url[0]; ?>"/ >
+				</div>
+			<?php else: ?>
+				<div class="catgrid-thumbnail" style="background-image:url('<?php echo $large_image_url[0]; ?>');">
+					<div class="cat-imgholder"></div>
+				</div>
+			<?php endif; ?>
 		</a>
 	<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 	<?php reactor_post_meta(array('show_author'=>true,'show_cat'=>false,'show_tag'=>false,'comments'=>false,'catpage'=>true,'link_date'=>false,'year_only'=>true,'show_by'=>false)); ?>
