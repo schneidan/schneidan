@@ -107,7 +107,7 @@ function reactor_post_catgrid_format() {
 	} ?>
 	<div class="catgrid-post clearfix">
 		<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
-			<?php if is_single(): ?>
+			<?php if ( is_single() ): ?>
 				<div class="catgrid-thumbnail">
 					<img src="<?php echo $large_image_url[0]; ?>"/ >
 				</div>
