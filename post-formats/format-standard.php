@@ -28,9 +28,15 @@
                     if ( has_post_thumbnail() ) {
                         $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
                     } ?>
-                    <div class="catgrid-thumbnail" style="background-image:url('<?php echo $large_image_url[0]; ?>');">
+                    <?php if ( is_single() ): ?>
+                        <div class="catgrid-thumbnail">
+                            <img src="<?php echo $large_image_url[0]; ?>"/ >
+                        </div>
+                    <?php else: ?>
+                        <div class="catgrid-thumbnail" style="background-image:url('<?php echo $large_image_url[0]; ?>');">
                             <div class="cat-imgholder"></div>
-                    </div>
+                        </div>
+                    <?php endif; ?>
                     <?php $usp_author = get_post_meta($post->ID, 'usp-author', true); if ($usp_author !=''): ?>
                         <p><i>Submitted by:</i> <strong><?php echo $usp_author; ?></strong></p>
                     <?php endif; ?>
