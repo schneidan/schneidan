@@ -918,6 +918,9 @@ body.single figure.figure-medium.alignleft {
     padding: .35em 1.5em .5em 0;
 }
 /* TablePress tables */
+.figure-150 .dataTables_wrapper .tablepress {
+    margin-top:.5em!important;
+}
 .figure-150 table tr td,
 .figure-150 table tr th,
 .figure-150 table thead tr td,
@@ -934,10 +937,17 @@ body.single figure.figure-medium.alignleft {
     background-color: #5f5f5f;
 }
 .figure-150 .tablepress .odd td {
-    background-color:#494949;
+    background-color:#3c3c3c;
 }
 .figure-150 .tablepress .even td {
     background-color: #222;
+}
+.figure-150 .tablepress tbody td,
+.figure-150 .tablepress tfoot th {
+    border-top: 1px solid #5f5f5f;
+}
+.figure-150 .tablepress .row-hover tr:hover td {
+    background-color: #5f5f5f;
 }
 /* images */
 figure.wp-caption figcaption.wp-caption-text {
