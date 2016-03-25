@@ -922,7 +922,7 @@ body.single figure.figure-medium.alignleft {
     padding:1em 0;
 }
 .figure-150 .dataTables_wrapper .tablepress {
-    margin-top:.5em!important;
+    margin:.5em 0!important;
 }
 .figure-150 .dataTables_wrapper .tablepress caption {
     display:none;
