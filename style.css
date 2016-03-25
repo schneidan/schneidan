@@ -919,7 +919,9 @@ body.single figure.figure-medium.alignleft {
 }
 /* TablePress tables */
 .figure-150 table tr td,
-.figure-150 table tr th {
+.figure-150 table tr th,
+.figure-150 table thead tr td,
+.figure-150 table thead tr th {
     color:#f5f5f5;
 }
 .figure-150 .tablepress tfoot th,
