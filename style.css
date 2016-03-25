@@ -922,7 +922,10 @@ body.single figure.figure-medium.alignleft {
     padding:1em 0;
 }
 .figure-150 .dataTables_wrapper .tablepress {
-    margin:.5em 0!important;
+    margin-top:.5em!important;
+}
+.figure-150 .dataTables_wrapper .tablepress caption {
+    display:none;
 }
 .figure-150 .dataTables_wrapper .dataTables_filter,
 .figure-150 .dataTables_wrapper .dataTables_length {
