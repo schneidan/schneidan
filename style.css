@@ -921,6 +921,10 @@ body.single figure.figure-medium.alignleft {
 .figure-150 .dataTables_wrapper .tablepress {
     margin-top:.5em!important;
 }
+.figure-150 .dataTables_wrapper .dataTables_filter,
+.figure-150 .dataTables_wrapper .dataTables_length {
+    margin-bottom:.5em;
+}
 .figure-150 table tr td,
 .figure-150 table tr th,
 .figure-150 table thead tr td,
@@ -945,6 +949,9 @@ body.single figure.figure-medium.alignleft {
 .figure-150 .tablepress tbody td,
 .figure-150 .tablepress tfoot th {
     border-top: 1px solid #5f5f5f;
+}
+.figure-150 .tablepress thead th {
+    border-bottom: 1px solid #5f5f5f;
 }
 .figure-150 .tablepress .row-hover tr:hover td {
     background-color: #5f5f5f;
