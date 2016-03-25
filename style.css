@@ -918,6 +918,9 @@ body.single figure.figure-medium.alignleft {
     padding: .35em 1.5em .5em 0;
 }
 /* TablePress tables */
+.figure-150 .dataTables_wrapper {
+    padding-top:1em;
+}
 .figure-150 .dataTables_wrapper .tablepress {
     margin-top:.5em!important;
 }
