@@ -919,10 +919,10 @@ body.single figure.figure-medium.alignleft {
 }
 /* TablePress tables */
 .figure-150 .dataTables_wrapper {
-    padding-top:1em;
+    padding:1em 0;
 }
 .figure-150 .dataTables_wrapper .tablepress {
-    margin-top:.5em!important;
+    margin:.5em 0!important;
 }
 .figure-150 .dataTables_wrapper .dataTables_filter,
 .figure-150 .dataTables_wrapper .dataTables_length {
@@ -953,7 +953,8 @@ body.single figure.figure-medium.alignleft {
 .figure-150 .tablepress tfoot th {
     border-top: 1px solid #5f5f5f;
 }
-.figure-150 .tablepress thead th {
+.figure-150 .tablepress thead th,
+.figure-150 .tablepress tbody {
     border-bottom: 1px solid #5f5f5f;
 }
 .figure-150 .tablepress .row-hover tr:hover td {
