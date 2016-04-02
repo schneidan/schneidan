@@ -103,7 +103,7 @@ add_action('reactor_post_tagpage', 'reactor_post_catpage_format', 1);
 function reactor_post_catgrid_format() {
 
 	if ( has_post_thumbnail() ) {
-		$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
+		$large_image_url = ( is_singular() ) ? wp_get_attachment_image_src( get_post_thumbnail_id(), 'full') :wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
 	} ?>
 	<div class="catgrid-post clearfix">
 		<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
