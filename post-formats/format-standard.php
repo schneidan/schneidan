@@ -26,7 +26,7 @@
                 </div>
                 <?php if (in_category(161)):
                     if ( has_post_thumbnail() ) {
-                        $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
+                        $large_image_url = ( is_single() ) ? wp_get_attachment_image_src( get_post_thumbnail_id(), 'full') :wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
                     } ?>
                     <?php if ( is_single() ): ?>
                         <div class="catgrid-thumbnail">
