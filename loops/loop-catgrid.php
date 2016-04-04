@@ -9,7 +9,7 @@
 ?>
 
 <?php // the get options
-$number_posts = 40;
+$number_posts = (in_category(161)) ? 100 : 40;
 if ( get_query_var('paged') ) {
     $paged = get_query_var('paged');
 } elseif ( get_query_var('page') ) {
