@@ -41,7 +41,7 @@
                         <p><i>Submitted by:</i> <strong><?php echo $usp_author; ?></strong></p>
                     <?php endif; ?>
                     <?php $usp_url = get_post_meta($post->ID, 'usp-url', true); if ($usp_url !=''): 
-                    	$usp_urlh = (!(substr($usp_url, 0, 7) = ('http://' || 'https:/'))) ? 'http://'.$usp_url : $usp_url;
+                    	$usp_urlh = (!(substr($usp_url, 0, 7) == 'http://' || substr($usp_url, 0, 8) == 'https://'))) ? 'http://'.$usp_url : $usp_url;
                     ?>
                         <p><i>Link:</i> <strong><a href="<?php echo $usp_urlh; ?>"><?php echo $usp_url; ?></a></strong></p>
                     <?php endif; ?>
