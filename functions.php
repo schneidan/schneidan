@@ -240,6 +240,17 @@ function attachment_field_credit_save( $post, $attachment ) {
 add_filter( 'attachment_fields_to_save', 'attachment_field_credit_save', 10, 2 );
 
 /**
+ * Exclude Expired Film Day posts from Search
+ */
+add_filter( 'pre_get_posts' , 'search_exc_cats' );
+function search_exc_cats( $query ) {
+    if( $query->is_admin || !$query->is_search )
+        return $query;
+    $query->set( 'category__not_in' , array( 161 ) );
+    return $query;
+}
+
+/**
  * Include posts from authors in the search results where
  * either their display name or user login matches the query string
  *
