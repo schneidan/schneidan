@@ -50,7 +50,7 @@ function reactor_do_reactor_head() { ?>
 $twitter_thumbs = '';
 $twitter_desc = get_bloginfo('description');
 if ( is_home() || is_front_page() ) {
-	$twitter_url = get_bloginfo( 'site_url' );
+	$twitter_url = get_bloginfo( 'url' );
 	$twitter_title = get_bloginfo( 'name' );
 } else if ( is_category() ) {
 	$id = get_query_var( 'cat' );
@@ -91,6 +91,8 @@ $twitter_thumb = ( ($twitter_thumbs != '') ? $twitter_thumbs[0] : get_stylesheet
 <meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>" />
 <meta property="og:description" content="<?php echo $twitter_desc; ?>" />
 <meta property="article:publisher" content="http://www.facebook.com/schneidan" />
+
+<meta property="fb:pages" content="260955107575344" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="distribution" content="global" />
