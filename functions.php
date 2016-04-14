@@ -30,8 +30,8 @@ function reactor_child_theme_setup() {
 	// 	array('top-bar-l', 'top-bar-r', 'main-menu', 'side-menu', 'footer-links')
 	// );
 	
-    add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
-    
+    add_theme_support( 'html5', array( 'caption' ) );
+
 	/* Support for sidebars
 	Note: this doesn't change layout options */
 	remove_theme_support('reactor-sidebars');

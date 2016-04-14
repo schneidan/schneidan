@@ -88,7 +88,7 @@ if ( !function_exists('reactor_wp_helpers') ) {
 		add_filter('the_content_more_link', 'reactor_content_more', 10, 2); 
 		
 		// add html5 captions
-		add_filter('img_caption_shortcode', 'reactor_cleaner_caption', 10, 3);
+		// add_filter('img_caption_shortcode', 'reactor_cleaner_caption', 10, 3);
 		
 		// clean up gallery output in wp
 		add_filter('gallery_style', 'reactor_gallery_style');
