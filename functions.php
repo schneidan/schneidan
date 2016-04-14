@@ -200,23 +200,26 @@ function modify_contact_methods($profile_fields) {
 }
 add_filter('user_contactmethods', 'modify_contact_methods');
 
-// Add photographer credit to caption output
-function my_caption_html( $current_html, $attr, $content ) {
-    extract(shortcode_atts(array(
-        'id'    => '',
-        'align' => 'alignnone',
-        'width' => '',
-        'caption' => ''
-    ), $attr));
-    if ( 1 > (int) $width || empty($caption) )
-        return $content;
+/**
+ * Add photographer credit to caption output // THIS DOESN'T WORK
+ *
+ * function my_caption_html( $current_html, $attr, $content ) {
+        extract(shortcode_atts(array(
+            'id'    => '',
+            'align' => 'alignnone',
+            'width' => '',
+            'caption' => ''
+        ), $attr));
+        if ( 1 > (int) $width || empty($caption) )
+            return $content;
 
-    if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
+        if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
 
-    return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . (10 + (int) $width) . 'px">'
-. do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '<span class="photo-credit">(' . get_post_meta( $id, 'photographer_name', true) . ')</span></p></div>';
-}
-add_filter( 'img_caption_shortcode', 'my_caption_html', 1, 3 );
+        return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . (10 + (int) $width) . 'px">'
+    . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '<span class="photo-credit">(' . get_post_meta( $id, 'photographer_name', true) . ')</span></p></div>';
+    }
+    add_filter( 'img_caption_shortcode', 'my_caption_html', 1, 3 );
+ */
 
 // Add Photographer Name and URL fields to media uploader
 function attachment_field_credit( $form_fields, $post ) {
