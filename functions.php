@@ -170,7 +170,7 @@ function disable_self_trackback( &$links ) {
 add_action( 'pre_ping', 'disable_self_trackback' );
 
 // Suppress 'Uncategorized' in category widget
-function my_categories_filter($cat_args){
+function my_categories_filter( $cat_args ){
     $cat_args['title_li'] = '';
     $cat_args['exclude_tree'] = 1;
     $cat_args['exclude'] = 1;
@@ -178,29 +178,40 @@ function my_categories_filter($cat_args){
     return $cat_args;
 }
 
-add_filter('widget_categories_args', 'my_categories_filter', 10, 2);
+add_filter( 'widget_categories_args', 'my_categories_filter', 10, 2 );
 
-function sd_exclude_from_rss($query) {
+// Exclude EFD posts from RSS
+function sd_exclude_from_rss( $query ) {
     // Categories to exclude - by ID
-    $cats_to_exclude = array(161);
+    $cats_to_exclude = array( 161 );
 
-    if ($query->is_feed && !$query->is_category($cats_to_exclude) ) {
-        set_query_var('category__not_in', $cats_to_exclude);
+    if ( $query->is_feed && !$query->is_category( $cats_to_exclude ) ) {
+        set_query_var( 'category__not_in', $cats_to_exclude );
     }
 
     return $query;
 }
-add_filter('pre_get_posts','sd_exclude_from_rss');
+add_filter( 'pre_get_posts', 'sd_exclude_from_rss' );
+
+// Exclude EFD posts from FB Instant Articles
+function instant_articles_query_modified( $query ) {
+    $cats_to_exclude = array(161);
+    if ( $query->is_main_query() && isset( INSTANT_ARTICLES_SLUG ) && $query->is_feed( INSTANT_ARTICLES_SLUG ) ) {
+        set_query_var('category__not_in', $cats_to_exclude);
+    }
+}
+add_action( 'pre_get_posts', 'instant_articles_query_modified', 10, 2 );
+
 
 // Add contact methods fields to user profile
-function modify_contact_methods($profile_fields) {
+function modify_contact_methods( $profile_fields ) {
 
     // Add new fields
     $profile_fields['publication'] = 'Publication';
 
     return $profile_fields;
 }
-add_filter('user_contactmethods', 'modify_contact_methods');
+add_filter( 'user_contactmethods', 'modify_contact_methods' );
 
 /**
  * Add photographer credit to caption output // THIS DOESN'T WORK
