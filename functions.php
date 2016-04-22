@@ -52,8 +52,8 @@ function reactor_child_theme_setup() {
 	remove_theme_support('reactor-post-types');
 	add_theme_support(
 	   'reactor-post-types',
-	 	array()
-	 );
+	 	array('')
+	);
 	
 	/* Support for page templates */
 	// remove_theme_support('reactor-page-templates');
