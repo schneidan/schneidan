@@ -432,13 +432,13 @@ function convert_smart_quotes($string)  {
 remove_filter('term_description','wpautop');
 
 
-/** Remove unneeded menu items */
+/** Remove unneeded menu items 
 function jp_rm_menu() {
     if( class_exists( 'Jetpack' ) ) {
         remove_menu_page( 'edit.php?post_type=feedback' );
     }
 }
-add_action( 'admin_init', 'jp_rm_menu' );
+add_action( 'admin_init', 'jp_rm_menu' ); */
 
 /**
  * Widget Custom Classes
