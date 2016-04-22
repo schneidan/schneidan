@@ -49,10 +49,10 @@ function reactor_child_theme_setup() {
 	// );
 	
 	/* Support for custom post types */
-	//remove_theme_support('reactor-post-types');
-	//add_theme_support(
-	//   'reactor-post-types',
-	// 	array('')
+	// remove_theme_support('reactor-post-types');
+	// add_theme_support(
+	// 	'reactor-post-types',
+	// 	array('slides', 'portfolio')
 	// );
 	
 	/* Support for page templates */
@@ -430,15 +430,6 @@ function convert_smart_quotes($string)  {
 
 // Remove category description paragraph tags
 remove_filter('term_description','wpautop');
-
-
-/** Remove unneeded menu items 
-function jp_rm_menu() {
-    if( class_exists( 'Jetpack' ) ) {
-        remove_menu_page( 'edit.php?post_type=feedback' );
-    }
-}
-add_action( 'admin_init', 'jp_rm_menu' ); */
 
 /**
  * Widget Custom Classes
