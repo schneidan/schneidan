@@ -550,8 +550,10 @@ if ( ! is_admin() ) {
 /**
  * Hide all admin notices from Yoast SEO plugin
  */
-remove_action( 'admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
-remove_action( 'all_admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
+if ( class_exists( 'Yoast_Notification_Center' ) ) {
+    remove_action( 'admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
+    remove_action( 'all_admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
+}
 
 // Attempts to exclude the frontpage post fro flexible-post-widget's query
 function exclude_flexible_posts($query_args) {
