@@ -49,7 +49,7 @@ function reactor_child_theme_setup() {
 	// );
 	
 	/* Support for custom post types */
-	// remove_theme_support('reactor-post-types');
+	remove_theme_support('reactor-post-types');
 	// add_theme_support(
 	// 	'reactor-post-types',
 	// 	array('slides', 'portfolio')
@@ -193,15 +193,13 @@ function sd_exclude_from_rss( $query ) {
 }
 add_filter( 'pre_get_posts', 'sd_exclude_from_rss' );
 
-// Exclude EFD posts from FB Instant Articles
-function instant_articles_query_modified( $query ) {
-    $cats_to_exclude = array(161);
-    if ( $query->is_main_query() && isset( INSTANT_ARTICLES_SLUG ) && $query->is_feed( INSTANT_ARTICLES_SLUG ) ) {
-        set_query_var('category__not_in', $cats_to_exclude);
+// Hide Jetpack's Feedback menu item
+function jp_rm_menu() {
+    if( class_exists( 'Jetpack' ) ) {
+        remove_menu_page( 'edit.php?post_type=feedback' );
     }
 }
-add_action( 'pre_get_posts', 'instant_articles_query_modified', 10, 2 );
-
+add_action( 'admin_init', 'jp_rm_menu' );
 
 // Add contact methods fields to user profile
 function modify_contact_methods( $profile_fields ) {
@@ -430,7 +428,7 @@ function convert_smart_quotes($string)  {
 
 // Remove category description paragraph tags
 remove_filter('term_description','wpautop');
-
+vivitr
 /**
  * Widget Custom Classes
  */
