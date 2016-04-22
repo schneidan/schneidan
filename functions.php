@@ -428,7 +428,7 @@ function convert_smart_quotes($string)  {
 
 // Remove category description paragraph tags
 remove_filter('term_description','wpautop');
-vivitr
+
 /**
  * Widget Custom Classes
  */
