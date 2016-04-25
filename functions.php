@@ -486,9 +486,9 @@ function sd_dequeue_scripts() {
         wp_dequeue_script( 'gss_js' );
         wp_dequeue_script( 'gss_custom_js' );
         wp_dequeue_style( 'gss_css' );
-        wp_dequeue_style( 'wp-email' );
     }
 
+    wp_dequeue_style( 'wp-email' );
 }
 
 add_action( 'wp_enqueue_scripts', 'sd_dequeue_scripts', 99 );
