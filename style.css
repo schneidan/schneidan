@@ -47,6 +47,15 @@ body.page #content p a.noext:after {
     height:5em;
     margin-top:-5em;
 }
+/* post secitons menu */
+.sectionsirght {
+    float:right;
+    width:35%;
+    border-top:2px solid #aaa;
+    border-bottom:2px solid #aaa;
+    padding:1em 1em 0;
+    margin:.5em 1em 1em;
+}
 /* site-wide styles */
 h1,
 h2,
