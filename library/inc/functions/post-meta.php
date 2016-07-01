@@ -70,7 +70,7 @@ if ( !function_exists('reactor_post_meta') ) {
 		}
 	
 		$posted_on = ( $args['date_only'] ) ? 'Posted: ' : '';
-		$raw_date = ( $args['link_date'] ) ? $posted_on . '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s"><abbr class="published" title="%5$s">%4$s</abbr></time></a>' : $posted_on . '<time class="entry-date" datetime="%3$s"><abbr class="published" title="%5$s">%4$s</abbr></time>';
+		$raw_date = ( $args['link_date'] ) ? $posted_on . '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate><abbr class="published" title="%5$s">%4$s</abbr></time></a>' : $posted_on . '<time class="entry-date" datetime="%3$s" pubdate><abbr class="published" title="%5$s">%4$s</abbr></time>';
 		$date = sprintf( $raw_date,
 			esc_url( get_month_link( get_the_time('Y'), get_the_time('m') ) ),
 			esc_attr( sprintf( __('View all posts from %s %s', 'reactor'), get_the_time('M'), get_the_time('Y') ) ),
