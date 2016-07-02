@@ -96,6 +96,9 @@ dl dt {
     font-size:1.33em;
     margin-top:1.2em;
 }
+code {
+    color:#fff;
+}
 iframe {
     border:none;
 }
