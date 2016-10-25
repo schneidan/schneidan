@@ -99,11 +99,6 @@ $twitter_thumb = ( ($twitter_thumbs != '') ? $twitter_thumbs[0] : get_stylesheet
 <meta name="robots" content="index,follow" />
 <meta name="language" content="en, sv" />
 <meta name="Copyright" content="Copyright &copy; Daniel J. Schneider." />
-<meta name="keywords" content="<?php
-if (has_tag() ) {
-    $posttags = get_the_tags();
-    foreach($posttags as $tag) { echo $tag->name . ', '; }
-} ?>photograpy, denver, colorado, rocky mountain, film" />
 
 <?php 
 }
