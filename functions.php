@@ -562,3 +562,16 @@ function exclude_flexible_posts($query_args) {
     return $query_args;
 }
 add_filter('dpe_fpw_args', 'exclude_flexible_posts');
+
+// Attempt to prevent "Password field is empty" errors on login window
+function sd_kill_wp_attempt_focus_start() {
+    ob_start("sd_kill_wp_attempt_focus_replace");
+}
+add_action("login_form", "sd_kill_wp_attempt_focus_start");
+function sd_kill_wp_attempt_focus_replace($html) {
+    return preg_replace("/d.value = '';/", "", $html);
+}
+function sd_kill_wp_attempt_focus_end() {
+    ob_end_flush();
+}
+add_action("login_footer", "sd_kill_wp_attempt_focus_end");
