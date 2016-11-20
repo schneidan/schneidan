@@ -467,18 +467,13 @@ add_filter( 'dynamic_sidebar_params', 'sd_dynamic_sidebar_params' );
  * dequeue Gallery Slideshow scripts when not necessary
  */
 function sd_dequeue_scripts() {
-
     $load_scripts = false;
-
     if( is_singular() ) {
         $post = get_post();
-
-        if( has_shortcode($post->post_content, 'gss') ) {
+        if ( has_shortcode( $post->post_content, 'gss' ) ) {
             $load_scripts = true;
         }
-
     }
-
     if( ! $load_scripts ) {
         wp_dequeue_script( 'cycle2' );
         wp_dequeue_script( 'cycle2_center' );
@@ -487,26 +482,19 @@ function sd_dequeue_scripts() {
         wp_dequeue_script( 'gss_custom_js' );
         wp_dequeue_style( 'gss_css' );
     }
-
-    wp_dequeue_style( 'wp-email' );
 }
-
 add_action( 'wp_enqueue_scripts', 'sd_dequeue_scripts', 99 );
-
 
 /**
  * Remove jquery migrate and move jquery to footer
  */
-add_filter( 'wp_default_scripts', 'remove_jquery_migrate' );
-
-function remove_jquery_migrate( &$scripts)
-{
-    if(!is_admin())
-    {
+function remove_jquery_migrate( &$scripts) {
+    if ( ! is_admin() ) {
         $scripts->remove( 'jquery');
         $scripts->add( 'jquery', false, array( 'jquery-core' ), '1.10.2' );
     }
 }
+add_filter( 'wp_default_scripts', 'remove_jquery_migrate' );
 
 /**
  * deregister stupid wP emoji BS

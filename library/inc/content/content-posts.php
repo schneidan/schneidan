@@ -231,12 +231,6 @@ function reactor_do_post_social() {
 		    rawurlencode( get_permalink() ),
 		    get_stylesheet_directory_uri() . '/images/icon-gplus-round.png'
 		);
-		//Email This
-		$social_string .= sprintf(
-		    '<li class="post-meta-social pm-email"><a href="%1$s"><img src="%2$s" alt="Share by Email" /></a></li>',
-		    get_permalink() . 'email',
-		    get_stylesheet_directory_uri() . '/images/icon-email-round.png'
-		);
 		$social_string .= '</div>';
 		echo $social_string;
 	}
