@@ -20,7 +20,6 @@
  */
 add_action('after_setup_theme', 'reactor_child_theme_setup', 11);
 
-
 function reactor_child_theme_setup() {
 
     /* Support for menus */
@@ -563,3 +562,12 @@ function sd_kill_wp_attempt_focus_end() {
     ob_end_flush();
 }
 add_action("login_footer", "sd_kill_wp_attempt_focus_end");
+
+// Disable cover images in Facebook Instant Articles plugin to avoid duplication
+function sd_filter_instant_articles_remove_featured_image($image_data) {
+    return array(
+        'src' => '',
+        'caption' => '',
+    );
+}
+add_filter('instant_articles_featured_image', 'sd_filter_instant_articles_remove_featured_image');
