@@ -551,6 +551,10 @@ body.page-template-port-page footer#footer {
     text-transform: uppercase;
 }
 /* tag and category images */
+body.page twitterwidget {
+	margin-left: auto;
+    margin-right: auto;
+}
 body.page h1.entry-title {
     font-size: 2em;
     margin: 0 0 .5em;
