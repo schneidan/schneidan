@@ -638,6 +638,7 @@ time abbr {
 }
 time abbr[title] {
     border-bottom: none;
+    text-decoration:none;
 }
 /* pagination */
 #main ul.pagination li {
