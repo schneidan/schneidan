@@ -22,7 +22,8 @@ if( $flexible_posts->have_posts() ):
 					if( $thumbnail == true ) {
 						// If the post has a feature image, show it
 						if( has_post_thumbnail() ) { 
-							$medium_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium'); ?>
+							$thumb_size = ( is_category( 'cameras') || is_category( 'stories') ) ? 'large' : 'medium';
+							$medium_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), $thumb_size); ?>
 							<a href="<?php the_permalink(); ?>" rel="bookmark" class="title-link" title="<?php the_title_attribute(); ?>">
 								<div class="cat-thumbnail" style="background-image:url('<?php echo $medium_image_url[0]; ?>');">
 									<div class="cat-imgholder"></div>
