@@ -30,7 +30,7 @@ function reactor_do_reactor_head() { ?>
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,500,100,200,300,600,700,800,900' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Raleway:400,500,100,200,300,600,700,800,900' rel='stylesheet' type='text/css'>
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() . '/favicon.ico'; ?>">
 
 <link rel="apple-touch-icon-precomposed" href="<?php echo get_stylesheet_directory_uri(); ?>/apple-touch-icon-precomposed.png">
