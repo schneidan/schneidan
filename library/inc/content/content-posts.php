@@ -210,7 +210,7 @@ function reactor_do_post_social() {
 		$social_string = '<div class="post-body-social"><ul class="inline-list">';
 		//Twitter button
 		$social_string .= sprintf(
-		    '<li class="post-meta-social pm-twitter"><a href="javascript:void(0)" onclick="javascript:window.open(\'http://twitter.com/share?text=%1$s&amp;url=%2$s&amp;via=%3$s\', \'twitwin\', \'left=20,top=20,width=500,height=500,toolbar=1,resizable=1\');"><img src="%4$s" alt="Share on Twitter" /></a></li>',
+		    '<li class="post-meta-social pm-twitter"><a href="javascript:void(0)" onclick="javascript:window.open(\'https://twitter.com/share?text=%1$s&amp;url=%2$s&amp;via=%3$s\', \'twitwin\', \'left=20,top=20,width=500,height=500,toolbar=1,resizable=1\');"><img src="%4$s" alt="Share on Twitter" /></a></li>',
 		    urlencode(html_entity_decode($text, ENT_COMPAT, 'UTF-8') . ':'),
 		    rawurlencode( get_permalink() ),
 		    'schneidan',
@@ -218,7 +218,7 @@ function reactor_do_post_social() {
 		);
 		//Facebook share
 		$social_string .= sprintf(
-		    '<li class="post-meta-social pm-facebook"><a href="javascript:void(0)" onclick="javascript:window.open(\'http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=%1$s&amp;p[images][0]=%2$s&amp;p[title]=%3$s&amp;p[summary]=%4$s\', \'fbwin\', \'left=20,top=20,width=500,height=500,toolbar=1,resizable=1\');"><img src="%5$s" alt="Share on Facebook" /></a></li>',
+		    '<li class="post-meta-social pm-facebook"><a href="javascript:void(0)" onclick="javascript:window.open(\'https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=%1$s&amp;p[images][0]=%2$s&amp;p[title]=%3$s&amp;p[summary]=%4$s\', \'fbwin\', \'left=20,top=20,width=500,height=500,toolbar=1,resizable=1\');"><img src="%5$s" alt="Share on Facebook" /></a></li>',
 		    rawurlencode( get_permalink() ),
 		    rawurlencode( $image[0] ),
 		    urlencode( html_entity_decode($text, ENT_COMPAT, 'UTF-8') ),
@@ -227,7 +227,7 @@ function reactor_do_post_social() {
 		);
 		//Google plus share
 		$social_string .= sprintf(
-		    '<li class="post-meta-social pm-googleplus"><a href="javascript:void(0)" onclick="javascript:window.open(\'http://plus.google.com/share?url=%1$s\', \'gpluswin\', \'left=20,top=20,width=500,height=500,toolbar=1,resizable=1\');"><img src="%2$s" alt="Share on Google Plus" /></a></li>',
+		    '<li class="post-meta-social pm-googleplus"><a href="javascript:void(0)" onclick="javascript:window.open(\'https://plus.google.com/share?url=%1$s\', \'gpluswin\', \'left=20,top=20,width=500,height=500,toolbar=1,resizable=1\');"><img src="%2$s" alt="Share on Google Plus" /></a></li>',
 		    rawurlencode( get_permalink() ),
 		    get_stylesheet_directory_uri() . '/images/icon-gplus-round.png'
 		);

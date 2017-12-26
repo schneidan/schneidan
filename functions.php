@@ -398,11 +398,11 @@ class follow_me_widget extends WP_Widget
             <h4 class="widget-title">Follow Me</h4>
             <div id="socialrow" class="large-10 medium-10 small-11 centered">
                 <ul class="inline-list">
-                    <li><a href="http://twitter.com/schneidan"><img src="' . get_stylesheet_directory_uri() . '/images/icon-twitter.png" alt="Follow on Twitter" /></a></li>
-                    <li><a href="http://facebook.com/schneidan"><img src="' . get_stylesheet_directory_uri() . '/images/icon-facebook.png" alt="Follow on Facebook" /></a></li>
-                    <li><a href="http://plus.google.com/+DanielJSchneider"><img src="' . get_stylesheet_directory_uri() . '/images/icon-gplus.png" alt="Follow on Google+" /></a></li>
-                    <li><a href="http://flickr.com/schneidan"><img src="' . get_stylesheet_directory_uri() . '/images/icon-flickr.png" alt="Follow on Flickr" /></a></li>
-                    <li><a href="http://schneidan.tumblr.com"><img src="' . get_stylesheet_directory_uri() . '/images/icon-tumblr.png" alt="Follow on Tumblr" /></a></li>
+                    <li><a href="https://twitter.com/schneidan"><img src="' . get_stylesheet_directory_uri() . '/images/icon-twitter.png" alt="Follow on Twitter" /></a></li>
+                    <li><a href="https://facebook.com/schneidan"><img src="' . get_stylesheet_directory_uri() . '/images/icon-facebook.png" alt="Follow on Facebook" /></a></li>
+                    <li><a href="https://plus.google.com/+DanielJSchneider"><img src="' . get_stylesheet_directory_uri() . '/images/icon-gplus.png" alt="Follow on Google+" /></a></li>
+                    <li><a href="https://flickr.com/schneidan"><img src="' . get_stylesheet_directory_uri() . '/images/icon-flickr.png" alt="Follow on Flickr" /></a></li>
+                    <li><a href="https://schneidan.tumblr.com"><img src="' . get_stylesheet_directory_uri() . '/images/icon-tumblr.png" alt="Follow on Tumblr" /></a></li>
                     <li><a href="' . get_home_url() . '/feed/"><img src="' . get_stylesheet_directory_uri() . '/images/icon-rss.png" alt="Follow via RSS" /></a></li>
                 </ul>
             </div>';
